@@ -1,0 +1,33 @@
+# YouTube RSS proxy
+/proxy/yt/:channelId https://www.youtube.com/feeds/videos.xml?channel_id=:channelId 200
+
+# note
+/proxy/rss/note-scenario https://note.com/hashtag/%E8%84%9A%E6%9C%AC/rss 200
+/proxy/rss/note-manga https://note.com/hashtag/%E6%BC%AB%E7%94%BB/rss 200
+/proxy/rss/note-musical https://note.com/hashtag/%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%AB%E3%83%AB/rss 200
+/proxy/rss/note-movie https://note.com/hashtag/%E6%98%A0%E7%94%BB/rss 200
+/proxy/rss/note-anime https://note.com/hashtag/%E3%82%A2%E3%83%8B%E3%83%A1/rss 200
+
+# 書籍・記事
+/proxy/rss/bunshun https://bunshun.jp/rss/list 200
+/proxy/rss/amazon https://www.amazon.co.jp/rss/new-releases/books/ 200
+
+# 映画
+/proxy/rss/eiga-com https://eiga.com/buzz/rss 200
+/proxy/rss/eiga-natalie https://natalie.mu/eiga/feed/news 200
+/proxy/rss/cinema-today https://www.cinematoday.jp/rss/news 200
+
+# 漫画・アニメ
+/proxy/rss/comic-natalie https://natalie.mu/comic/feed/news 200
+/proxy/rss/anime-natalie https://natalie.mu/anime/feed/news 200
+/proxy/rss/animatetimes https://www.animatetimes.com/rss/news.rdf 200
+/proxy/rss/oricon-anime https://www.oricon.co.jp/rss/news/cat/anime/rss2_0.xml 200
+
+# ミュージカル・舞台・音楽
+/proxy/rss/spice https://spice.eplus.jp/rss 200
+/proxy/rss/stage-natalie https://natalie.mu/stage/feed/news 200
+/proxy/rss/oricon-music https://www.oricon.co.jp/rss/news/cat/music/rss2_0.xml 200
+
+# 総合エンタメ
+/proxy/rss/natalie https://natalie.mu/feed/news 200
+/proxy/rss/oricon https://www.oricon.co.jp/rss/news/rss2_0.xml 200
