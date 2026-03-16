@@ -434,9 +434,39 @@ async function refreshAll(){
   S.lastUpdated=Date.now();persist();
   bar.className='ubar';
   renderSB();renderTags();renderFeed();
+  enrichThumbs();
   let t=newCount>0?`${newCount}件取得しました`:'新しいアイテムはありませんでした';
   if(failCount>0)t+=`（${failCount}件失敗）`;
   showToast(t);
+}
+
+
+// ===== OGP サムネイル取得（記事用）=====
+async function fetchOgpThumb(url) {
+  try {
+    const r = await fetch(`/.netlify/functions/ogp?url=${encodeURIComponent(url)}`, {signal: AbortSignal.timeout(6000)});
+    const d = await r.json();
+    return d.image || '';
+  } catch(e) { return ''; }
+}
+
+async function enrichThumbs() {
+  // サムネなし・記事タイプのアイテムを最新20件だけOGP取得
+  const targets = S.items
+    .filter(i => !i.thumb && i.url && i.url.startsWith('http') && i.type !== 'video')
+    .slice(0, 20);
+  if (!targets.length) return;
+  for (const item of targets) {
+    const thumb = await fetchOgpThumb(item.url);
+    if (thumb) {
+      item.thumb = thumb;
+    } else {
+      item.thumb = '__none__'; // 再取得しないようにマーク
+    }
+    await new Promise(r => setTimeout(r, 100));
+  }
+  persist();
+  renderFeed();
 }
 
 // ===== RENDER =====
@@ -480,7 +510,7 @@ function renderFeed(){
     fc.innerHTML=items.map(item=>{
       const c=getcat(item.catId),tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
-      const thumb=item.thumb||(vid?ytThumb(vid):'');
+      const rawThumb=item.thumb==='__none__'?'':item.thumb; const thumb=rawThumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'☆';
       return`<div class="yc">
         <div class="ythumb">
@@ -508,7 +538,7 @@ function renderFeed(){
     fc.innerHTML=items.map(item=>{
       const c=getcat(item.catId),tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
-      const thumb=item.thumb||(vid?ytThumb(vid):'');
+      const rawThumb=item.thumb==='__none__'?'':item.thumb; const thumb=rawThumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'';
       return`<div class="li">
         <div class="li-th" style="background:${c?.bg||tm.bg}">
