@@ -1,5 +1,11 @@
-# YouTube RSS proxy
+# YouTube RSS proxy - すべてのYouTubeチャンネルをプロキシ経由で取得
 /proxy/yt/:channelId https://www.youtube.com/feeds/videos.xml?channel_id=:channelId 200
 
-# General RSS proxy
-/proxy/rss/:url https://:url 200
+# 記事RSS proxy
+/proxy/rss/bunshun https://bunshun.jp/rss/list 200
+/proxy/rss/amazon https://www.amazon.co.jp/rss/new-releases/books/ 200
+/proxy/rss/note-scenario https://note.com/hashtag/%E8%84%9A%E6%9C%AC/rss 200
+/proxy/rss/note-manga https://note.com/hashtag/%E6%BC%AB%E7%94%BB/rss 200
+/proxy/rss/note-musical https://note.com/hashtag/%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%AB%E3%83%AB/rss 200
+/proxy/rss/note-movie https://note.com/hashtag/%E6%98%A0%E7%94%BB/rss 200
+/proxy/rss/note-anime https://note.com/hashtag/%E3%82%A2%E3%83%8B%E3%83%A1/rss 200
