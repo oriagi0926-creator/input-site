@@ -83,7 +83,6 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .empty{text-align:center;padding:64px 20px;color:var(--fg3);}
 .empty-ico{font-size:48px;margin-bottom:12px;}
 .empty p{font-size:14px;margin-bottom:16px;}
-/* MODAL共通 */
 .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:flex-end;justify-content:center;}
 .mo.op{display:flex;}
 @media(min-width:640px){.mo{align-items:center;padding:20px;}}
@@ -97,16 +96,15 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .tab-pane{display:none;}
 .tab-pane.on{display:block;}
 .fl{font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;}
-.fi{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;transition:border-color .12s;margin-bottom:10px;}
+.fi{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;margin-bottom:10px;}
 .fi:focus{border-color:var(--ac);}
 .fsel{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;appearance:none;margin-bottom:10px;}
 .fsel:focus{border-color:var(--ac);}
 .fta{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;resize:vertical;min-height:60px;margin-bottom:10px;}
-/* RSS管理 */
 .feed-li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rad);margin-bottom:8px;background:var(--bg2);}
 .feed-li .fn{flex:1;min-width:0;}
 .feed-li .fn strong{font-size:13px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.feed-li .fn span{font-size:11px;color:var(--fg3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;}
+.feed-li .fn span{font-size:11px;color:var(--fg3);display:block;}
 .feed-li .fcat{font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
 .fdel{background:none;border:none;color:var(--fg3);cursor:pointer;padding:4px;font-size:16px;}
 .fdel:hover{color:#EF4444;}
@@ -116,16 +114,13 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .mo-btns{display:flex;gap:8px;margin-top:8px;}
 .bc{flex:1;padding:10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
 .bs{flex:2;padding:10px;font-size:13px;font-weight:700;border:none;border-radius:var(--rad);background:var(--ac);color:#fff;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
-/* YouTube helper */
 .yt-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:12px;}
 .yt-box h4{font-size:13px;font-weight:700;margin-bottom:8px;}
 .yt-row{display:flex;gap:8px;}
 .yt-row input{flex:1;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;}
-.yt-row input:focus{border-color:var(--ac);}
-.yt-row button{padding:8px 12px;background:var(--ac);color:#fff;border:none;border-radius:var(--rad);font-size:12px;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
-.yt-res{margin-top:8px;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);display:none;word-break:break-all;color:var(--fg2);}
+.yt-row button{padding:8px 12px;background:var(--ac);color:#fff;border:none;border-radius:var(--rad);font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+.yt-res{margin-top:8px;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);display:none;word-break:break-all;}
 .yt-res.show{display:block;}
-.yt-copy{margin-top:6px;padding:5px 10px;font-size:11px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;color:var(--fg2);font-family:'Noto Sans JP',sans-serif;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:#1a1a1a;color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;z-index:400;transition:transform .22s;pointer-events:none;white-space:nowrap;}
 .toast.sh{transform:translateX(-50%) translateY(0);}
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;}
@@ -220,9 +215,10 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
     </div>
     <div class="tab-pane" id="tab-add">
       <label class="fl">フィード名（任意）</label>
-      <input class="fi" id="f-name" placeholder="例：咲熊、文春オンライン...">
-      <label class="fl">RSS URL <span style="color:var(--ac)">*</span></label>
-      <input class="fi" id="f-url" placeholder="https://... または /proxy/yt/UCxxxxxx">
+      <input class="fi" id="f-name" placeholder="例：映画ナタリー、SPICE...">
+      <label class="fl">フィードキー または YouTube チャンネルID <span style="color:var(--ac)">*</span></label>
+      <input class="fi" id="f-url" placeholder="例：eiga-natalie または UCxxxxxx（YouTubeの場合）">
+      <p style="font-size:11px;color:var(--fg3);margin-top:-6px;margin-bottom:10px;">下のプリセットをクリックすると自動入力されます</p>
       <label class="fl">カテゴリ</label>
       <select class="fsel" id="f-cat"></select>
       <label class="fl">種別</label>
@@ -233,27 +229,27 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
         <option value="music">🎵 音楽・舞台</option>
         <option value="other">💡 その他</option>
       </select>
-      <label class="fl" style="margin-bottom:6px;">プリセット</label>
+      <label class="fl" style="margin-bottom:6px;">プリセット（クリックで入力）</label>
       <div class="preset-row">
-        <button class="pbtn" onclick="preset('/proxy/rss/bunshun','文春オンライン','article')">文春オンライン</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/amazon','Amazon新刊','book')">Amazon新刊</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/note-scenario','note #脚本','article')">note #脚本</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/note-manga','note #漫画','article')">note #漫画</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/note-musical','note #ミュージカル','article')">note #ミュージカル</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/note-movie','note #映画','article')">note #映画</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/note-anime','note #アニメ','article')">note #アニメ</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/eiga-com','映画.com','article')">映画.com</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/eiga-natalie','映画ナタリー','article')">映画ナタリー</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/cinema-today','シネマトゥデイ','article')">シネマトゥデイ</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/comic-natalie','コミックナタリー','article')">コミックナタリー</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/anime-natalie','アニメナタリー','article')">アニメナタリー</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/animatetimes','アニメイトタイムズ','article')">アニメイトタイムズ</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/oricon-anime','オリコン（アニメ）','article')">オリコン（アニメ）</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/spice','SPICE（舞台）','article')">SPICE（舞台）</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/stage-natalie','ステージナタリー','article')">ステージナタリー</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/oricon-music','オリコン（音楽）','article')">オリコン（音楽）</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/natalie','ナタリー総合','article')">ナタリー総合</button>
-        <button class="pbtn" onclick="preset('/proxy/rss/oricon','オリコン総合','article')">オリコン総合</button>
+        <button class="pbtn" onclick="preset('bunshun','文春オンライン','article')">文春オンライン</button>
+        <button class="pbtn" onclick="preset('amazon','Amazon新刊','book')">Amazon新刊</button>
+        <button class="pbtn" onclick="preset('note-scenario','note #脚本','article')">note #脚本</button>
+        <button class="pbtn" onclick="preset('note-manga','note #漫画','article')">note #漫画</button>
+        <button class="pbtn" onclick="preset('note-musical','note #ミュージカル','article')">note #ミュージカル</button>
+        <button class="pbtn" onclick="preset('note-movie','note #映画','article')">note #映画</button>
+        <button class="pbtn" onclick="preset('note-anime','note #アニメ','article')">note #アニメ</button>
+        <button class="pbtn" onclick="preset('eiga-com','映画.com','article')">映画.com</button>
+        <button class="pbtn" onclick="preset('eiga-natalie','映画ナタリー','article')">映画ナタリー</button>
+        <button class="pbtn" onclick="preset('cinema-today','シネマトゥデイ','article')">シネマトゥデイ</button>
+        <button class="pbtn" onclick="preset('comic-natalie','コミックナタリー','article')">コミックナタリー</button>
+        <button class="pbtn" onclick="preset('anime-natalie','アニメナタリー','article')">アニメナタリー</button>
+        <button class="pbtn" onclick="preset('animatetimes','アニメイトタイムズ','article')">アニメイトタイムズ</button>
+        <button class="pbtn" onclick="preset('oricon-anime','オリコン（アニメ）','article')">オリコン（アニメ）</button>
+        <button class="pbtn" onclick="preset('spice','SPICE（舞台）','music')">SPICE（舞台）</button>
+        <button class="pbtn" onclick="preset('stage-natalie','ステージナタリー','music')">ステージナタリー</button>
+        <button class="pbtn" onclick="preset('oricon-music','オリコン（音楽）','music')">オリコン（音楽）</button>
+        <button class="pbtn" onclick="preset('natalie','ナタリー総合','article')">ナタリー総合</button>
+        <button class="pbtn" onclick="preset('oricon','オリコン総合','article')">オリコン総合</button>
       </div>
       <div class="mo-btns">
         <button class="bc" onclick="closeRss()">キャンセル</button>
@@ -262,8 +258,8 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
     </div>
     <div class="tab-pane" id="tab-yt">
       <div class="yt-box">
-        <h4>🎬 チャンネルURL → RSS生成</h4>
-        <p style="font-size:12px;color:var(--fg2);margin-bottom:8px;">YouTubeチャンネルのURLを貼ると、プロキシURLを生成します。</p>
+        <h4>🎬 チャンネルURL → フィードキー生成</h4>
+        <p style="font-size:12px;color:var(--fg2);margin-bottom:8px;">YouTubeチャンネルのURLを貼ってください（<code>channel/UC...</code> 形式）。</p>
         <div class="yt-row">
           <input id="yt-url" placeholder="https://www.youtube.com/channel/UC...">
           <button onclick="genYt()">生成</button>
@@ -299,7 +295,6 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 </div>
 
 <script>
-// ===== カテゴリ定義 =====
 const CATS = [
   {id:1, name:'脚本・映画',         color:'#F59E0B', bg:'#FEF3C7'},
   {id:2, name:'書籍・漫画・アニメ',  color:'#10B981', bg:'#D1FAE5'},
@@ -307,7 +302,6 @@ const CATS = [
   {id:4, name:'宇宙・科学',          color:'#6366F1', bg:'#EEF2FF'},
   {id:5, name:'歴史',                color:'#0EA5E9', bg:'#E0F2FE'},
 ];
-
 const TM = {
   video:   {icon:'🎬',label:'動画',    color:'#EF4444',bg:'#FEE2E2'},
   article: {icon:'📰',label:'記事',    color:'#6366F1',bg:'#EEF2FF'},
@@ -316,42 +310,32 @@ const TM = {
   other:   {icon:'💡',label:'その他',  color:'#F59E0B',bg:'#FEF3C7'},
 };
 
-// ===== デフォルトフィード（_redirects経由で確実に動作） =====
+// デフォルトフィード定義（feedKeyまたはytId）
 const DEFAULT_FEEDS = [
-  // 歴史
-  {id:'sakuma',    name:'咲熊',           catId:5, type:'video',   url:'/proxy/yt/UCNQMIxQfa43QkkudqAap_9A'},
-  {id:'ore',       name:'俺の世界史ch',    catId:5, type:'video',   url:'/proxy/yt/UCN1LT_sxN2A-aZU-9YdblYg'},
-  {id:'piyosoku',  name:'ぴよぴーよ速報',  catId:5, type:'video',   url:'/proxy/yt/UCqO3c4rN70PR0yHWLDCNUXQ'},
-  // 宇宙・科学
-  {id:'bright',    name:'ブライトサイド',   catId:4, type:'video',   url:'/proxy/yt/UCddiUEpeqJcYeBxX1IVBKvQ'},
-  {id:'codomo',    name:'古代生物ちゃんねる',catId:4, type:'video',   url:'/proxy/yt/UCWCSPcNAFDkRRVTjvECl5qg'},
-  // 漫画・アニメ・映画
-  {id:'jump',      name:'ジャンプ公式',     catId:2, type:'video',   url:'/proxy/yt/UCTThOe_3n0WJZ9sRWAMa2aA'},
-  // ミュージカル
-  {id:'takarazuka',name:'宝塚公式',         catId:3, type:'video',   url:'/proxy/yt/UCpmLMQwZl7-sKHqFWzKZKrQ'},
-  // 記事
-  {id:'bunshun',   name:'文春オンライン',   catId:1, type:'article', url:'/proxy/rss/bunshun'},
-  {id:'amazon',    name:'Amazon新刊',       catId:2, type:'book',    url:'/proxy/rss/amazon'},
-  {id:'note-sc',   name:'note #脚本',       catId:1, type:'article', url:'/proxy/rss/note-scenario'},
-  {id:'note-mn',   name:'note #漫画',       catId:2, type:'article', url:'/proxy/rss/note-manga'},
-  {id:'note-mu',   name:'note #ミュージカル',catId:3, type:'article', url:'/proxy/rss/note-musical'},
-  {id:'note-mv',   name:'note #映画',       catId:1, type:'article', url:'/proxy/rss/note-movie'},
-  {id:'note-an',   name:'note #アニメ',     catId:2, type:'article', url:'/proxy/rss/note-anime'},
+  {id:'sakuma',    name:'咲熊',           catId:5, type:'video',   ytId:'UCNQMIxQfa43QkkudqAap_9A'},
+  {id:'ore',       name:'俺の世界史ch',    catId:5, type:'video',   ytId:'UCN1LT_sxN2A-aZU-9YdblYg'},
+  {id:'piyosoku',  name:'ぴよぴーよ速報',  catId:5, type:'video',   ytId:'UCqO3c4rN70PR0yHWLDCNUXQ'},
+  {id:'bright',    name:'ブライトサイド',   catId:4, type:'video',   ytId:'UCddiUEpeqJcYeBxX1IVBKvQ'},
+  {id:'codomo',    name:'古代生物ちゃんねる',catId:4, type:'video',  ytId:'UCWCSPcNAFDkRRVTjvECl5qg'},
+  {id:'jump',      name:'ジャンプ公式',     catId:2, type:'video',   ytId:'UCTThOe_3n0WJZ9sRWAMa2aA'},
+  {id:'takarazuka',name:'宝塚公式',         catId:3, type:'video',   ytId:'UCpmLMQwZl7-sKHqFWzKZKrQ'},
+  {id:'bunshun',   name:'文春オンライン',   catId:1, type:'article', feedKey:'bunshun'},
+  {id:'amazon',    name:'Amazon新刊',       catId:2, type:'book',    feedKey:'amazon'},
+  {id:'note-sc',   name:'note #脚本',       catId:1, type:'article', feedKey:'note-scenario'},
+  {id:'note-mn',   name:'note #漫画',       catId:2, type:'article', feedKey:'note-manga'},
+  {id:'note-mu',   name:'note #ミュージカル',catId:3,type:'article', feedKey:'note-musical'},
+  {id:'note-mv',   name:'note #映画',       catId:1, type:'article', feedKey:'note-movie'},
+  {id:'note-an',   name:'note #アニメ',     catId:2, type:'article', feedKey:'note-anime'},
 ];
 
-// ===== 状態管理 =====
 function loadState(){
-  try{const s=localStorage.getItem('inp_v9');if(s)return JSON.parse(s);}catch(e){}
-  // 初回はデフォルトフィードをセット
+  try{const s=localStorage.getItem('inp_v10');if(s)return JSON.parse(s);}catch(e){}
   return{feeds:[...DEFAULT_FEEDS],items:[],selCat:null,view:'grid',nii:1,lastUpdated:null};
 }
 let S=loadState();
-// デフォルトフィードに新しいものがあれば追加
-DEFAULT_FEEDS.forEach(df=>{
-  if(!S.feeds.find(f=>f.id===df.id)) S.feeds.push(df);
-});
+DEFAULT_FEEDS.forEach(df=>{if(!S.feeds.find(f=>f.id===df.id))S.feeds.push(df);});
 
-function persist(){localStorage.setItem('inp_v9',JSON.stringify(S));}
+function persist(){localStorage.setItem('inp_v10',JSON.stringify(S));}
 function getcat(id){return CATS.find(c=>c.id===id);}
 function ago(ts){
   const d=(Date.now()-ts)/1000;
@@ -369,46 +353,51 @@ function ytId(url){
 }
 function ytThumb(id){return`https://img.youtube.com/vi/${id}/mqdefault.jpg`;}
 
-// ===== RSS取得 =====
+// ===== フィード取得（Netlify Function経由）=====
 async function fetchFeed(feed){
   try{
-    const r=await fetch(feed.url,{signal:AbortSignal.timeout(10000)});
-    const xml=await r.text();
-    if(!xml||xml.trim().startsWith('{')||!xml.includes('<'))return[];
-    return parseXml(xml,feed);
+    let url;
+    if(feed.ytId){
+      url=`/.netlify/functions/feed?yt=${feed.ytId}`;
+    } else if(feed.feedKey){
+      url=`/.netlify/functions/feed?feed=${feed.feedKey}`;
+    } else return [];
+
+    const r=await fetch(url,{signal:AbortSignal.timeout(12000)});
+    const d=await r.json();
+    if(!d.items||!d.items.length) return [];
+    return d.items.map(item=>{
+      const vid=ytId(item.link||'');
+      let thumb=item.thumbnail||'';
+      if(!thumb&&vid)thumb=ytThumb(vid);
+      return{
+        id:'r_'+Date.now()+'_'+Math.random().toString(36).slice(2,6),
+        catId:feed.catId,type:feed.type,
+        title:(item.title||'').trim(),
+        url:item.link||'',thumb,memo:'',
+        time:item.pubDate?new Date(item.pubDate).getTime():Date.now(),
+        star:0,feedName:feed.name
+      };
+    }).filter(i=>i.title);
   }catch(e){return[];}
 }
 
-function parseXml(xml,feed){
-  const items=[];
-  const re=/<entry[^>]*>([\s\S]*?)<\/entry>|<item[^>]*>([\s\S]*?)<\/item>/gi;
-  let m;
-  while((m=re.exec(xml))!==null&&items.length<20){
-    const b=m[1]||m[2];
-    const get=tag=>{
-      const r=new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${tag}>`,'i');
-      const rm=b.match(r);return rm?rm[1].replace(/<[^>]+>/g,'').trim():'';
-    };
-    const ga=(tag,attr)=>{const r=new RegExp(`<${tag}[^>]*${attr}=["']([^"']+)["']`,'i');const rm=b.match(r);return rm?rm[1]:'';};
-    let link=get('link')||ga('link','href');
-    if(!link){const g=b.match(/<guid[^>]*>([^<]+)<\/guid>/i);if(g&&g[1].startsWith('http'))link=g[1].trim();}
-    const mt=b.match(/<media:thumbnail[^>]*url=["']([^"']+)["']/i);
-    const mc=b.match(/<media:content[^>]*url=["']([^"']+)["']/i);
-    const enc=b.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
-    const imgD=b.match(/<img[^>]+src=["']([^"']+)["']/i);
-    const pub=get('pubDate')||get('published')||get('updated')||'';
-    const title=get('title');if(!title)continue;
-    const vid=ytId(link);
-    let thumb=(mt&&mt[1])||(mc&&mc[1])||(enc&&enc[1])||(imgD&&imgD[1])||'';
-    if(!thumb&&vid)thumb=ytThumb(vid);
-    items.push({
-      id:'r_'+Date.now()+'_'+Math.random().toString(36).slice(2,6),
-      catId:feed.catId,type:feed.type,title,url:link,thumb,memo:'',
-      time:pub?new Date(pub).getTime():Date.now(),
-      star:0,feedName:feed.name
-    });
+// ===== OGP サムネイル取得（記事用・バックグラウンド）=====
+async function enrichThumbs(){
+  const targets=S.items
+    .filter(i=>!i.thumb&&i.url&&i.url.startsWith('http')&&i.type!=='video')
+    .slice(0,15);
+  if(!targets.length)return;
+  for(const item of targets){
+    try{
+      const r=await fetch(`/.netlify/functions/feed?ogp=${encodeURIComponent(item.url)}`,{signal:AbortSignal.timeout(6000)});
+      const d=await r.json();
+      if(d.image){item.thumb=d.image;}
+      else{item.thumb='__none__';}
+    }catch(e){item.thumb='__none__';}
+    await new Promise(r=>setTimeout(r,150));
   }
-  return items.filter(i=>i.title);
+  persist();renderFeed();
 }
 
 async function refreshAll(){
@@ -428,48 +417,18 @@ async function refreshAll(){
         S.items.unshift(it);newCount++;
       }
     }else failCount++;
-    await new Promise(r=>setTimeout(r,250));
+    await new Promise(r=>setTimeout(r,200));
   }
   if(S.items.length>800)S.items=S.items.slice(0,800);
   S.lastUpdated=Date.now();persist();
-  bar.className='ubar';
-  renderSB();renderTags();renderFeed();
-  enrichThumbs();
+  bar.className='ubar';renderSB();renderTags();renderFeed();
   let t=newCount>0?`${newCount}件取得しました`:'新しいアイテムはありませんでした';
   if(failCount>0)t+=`（${failCount}件失敗）`;
   showToast(t);
+  // バックグラウンドでサムネ取得
+  setTimeout(enrichThumbs, 500);
 }
 
-
-// ===== OGP サムネイル取得（記事用）=====
-async function fetchOgpThumb(url) {
-  try {
-    const r = await fetch(`/.netlify/functions/ogp?url=${encodeURIComponent(url)}`, {signal: AbortSignal.timeout(6000)});
-    const d = await r.json();
-    return d.image || '';
-  } catch(e) { return ''; }
-}
-
-async function enrichThumbs() {
-  // サムネなし・記事タイプのアイテムを最新20件だけOGP取得
-  const targets = S.items
-    .filter(i => !i.thumb && i.url && i.url.startsWith('http') && i.type !== 'video')
-    .slice(0, 20);
-  if (!targets.length) return;
-  for (const item of targets) {
-    const thumb = await fetchOgpThumb(item.url);
-    if (thumb) {
-      item.thumb = thumb;
-    } else {
-      item.thumb = '__none__'; // 再取得しないようにマーク
-    }
-    await new Promise(r => setTimeout(r, 100));
-  }
-  persist();
-  renderFeed();
-}
-
-// ===== RENDER =====
 function renderSB(){
   const el=document.getElementById('cat-list');
   let h=`<div class="cat-r ${S.selCat===null?'on':''}" onclick="selCat(null)">
@@ -510,7 +469,8 @@ function renderFeed(){
     fc.innerHTML=items.map(item=>{
       const c=getcat(item.catId),tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
-      const rawThumb=item.thumb==='__none__'?'':item.thumb; const thumb=rawThumb||(vid?ytThumb(vid):'');
+      const rawThumb=item.thumb==='__none__'?'':item.thumb;
+      const thumb=rawThumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'☆';
       return`<div class="yc">
         <div class="ythumb">
@@ -538,7 +498,8 @@ function renderFeed(){
     fc.innerHTML=items.map(item=>{
       const c=getcat(item.catId),tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
-      const rawThumb=item.thumb==='__none__'?'':item.thumb; const thumb=rawThumb||(vid?ytThumb(vid):'');
+      const rawThumb=item.thumb==='__none__'?'':item.thumb;
+      const thumb=rawThumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'';
       return`<div class="li">
         <div class="li-th" style="background:${c?.bg||tm.bg}">
@@ -564,7 +525,6 @@ function setView(v){S.view=v;persist();document.getElementById('vg').className='
 function delItem(id){S.items=S.items.filter(i=>i.id!==id);persist();renderSB();renderFeed();showToast('削除しました');}
 function cycleStar(id){const item=S.items.find(i=>i.id===id);if(item){item.star=((item.star||0)+1)%4;persist();renderFeed();}}
 
-// ===== RSS管理 =====
 function openRss(){renderFeedList();fillSels();document.getElementById('rss-mo').className='mo op';stab('list');}
 function closeRss(){document.getElementById('rss-mo').className='mo';}
 function stab(t){
@@ -580,33 +540,39 @@ function renderFeedList(){
   no.style.display='none';
   el.innerHTML=S.feeds.map(f=>{
     const c=getcat(f.catId);
+    const key=f.ytId?`YT: ${f.ytId.slice(0,12)}...`:f.feedKey||'';
     return`<div class="feed-li">
       <div style="width:28px;height:28px;border-radius:50%;background:${c?.color||'#888'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">${(c?.name||'?')[0]}</div>
-      <div class="fn"><strong>${f.name}</strong><span>${f.url}</span></div>
+      <div class="fn"><strong>${f.name}</strong><span>${key}</span></div>
       <span class="fcat" style="background:${c?.bg||'#f5f5f5'};color:${c?.color||'#888'}">${c?.name||''}</span>
       <button class="fdel" onclick="delFeed('${f.id}')">×</button>
     </div>`;
   }).join('');
 }
 function addFeed(){
-  const url=document.getElementById('f-url').value.trim();if(!url)return;
-  const name=document.getElementById('f-name').value.trim()||url.split('/').pop();
+  const raw=document.getElementById('f-url').value.trim();if(!raw)return;
+  const name=document.getElementById('f-name').value.trim()||raw;
   const catId=parseInt(document.getElementById('f-cat').value);
   const type=document.getElementById('f-type').value;
   const id='u_'+Date.now();
-  S.feeds.push({id,name,url,catId,type});
+  // UCで始まる場合はYouTubeチャンネルID
+  const feed=raw.startsWith('UC')
+    ?{id,name,catId,type,ytId:raw}
+    :{id,name,catId,type,feedKey:raw};
+  S.feeds.push(feed);
   persist();
   document.getElementById('f-url').value='';document.getElementById('f-name').value='';
   renderFeedList();showToast(`「${name}」を登録しました`);stab('list');
 }
 function delFeed(id){
+  const f=S.feeds.find(f=>f.id===id);
   S.feeds=S.feeds.filter(f=>f.id!==id);
-  S.items=S.items.filter(i=>i.feedName!==S.feeds.find(f=>f.id===id)?.name);
+  if(f)S.items=S.items.filter(i=>i.feedName!==f.name);
   persist();renderFeedList();renderSB();renderFeed();showToast('削除しました');
 }
-function preset(url,name,type){
+function preset(key,name,type){
   stab('add');
-  document.getElementById('f-url').value=url;
+  document.getElementById('f-url').value=key;
   document.getElementById('f-name').value=name;
   document.getElementById('f-type').value=type;
 }
@@ -615,27 +581,22 @@ function genYt(){
   const res=document.getElementById('yt-res');
   const m=inp.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
   if(m){
-    const proxyUrl=`/proxy/yt/${m[1]}`;
-    res.innerHTML=`<div style="margin-bottom:6px;">${proxyUrl}</div><button class="yt-copy" onclick="useYt('${proxyUrl}')">このURLをフィード追加へ →</button>`;
+    res.innerHTML=`<div style="margin-bottom:6px;">チャンネルID: <strong>${m[1]}</strong></div>
+      <button style="padding:5px 10px;font-size:11px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;" onclick="stab('add');document.getElementById('f-url').value='${m[1]}';document.getElementById('f-type').value='video';showToast('IDをセットしました')">フィード追加へ →</button>`;
     res.className='yt-res show';
   }else{
     res.innerHTML='URLに <code>channel/UC...</code> のIDが見つかりません。';
     res.className='yt-res show';
   }
 }
-function useYt(url){stab('add');document.getElementById('f-url').value=url;document.getElementById('f-type').value='video';showToast('URLをセットしました');}
 
 function fillSels(){
   const opts=CATS.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
   ['f-cat','m-cat'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=opts;});
 }
-
-// ===== 手動追加 =====
 function openAdd(){
-  fillSels();
-  ['m-title','m-url','m-memo'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('add-mo').className='mo op';
-  setTimeout(()=>document.getElementById('m-title').focus(),80);
+  fillSels();['m-title','m-url','m-memo'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('add-mo').className='mo op';setTimeout(()=>document.getElementById('m-title').focus(),80);
 }
 function closeAdd(){document.getElementById('add-mo').className='mo';}
 function saveItem(){
@@ -647,7 +608,6 @@ function saveItem(){
   S.items.unshift({id:'m_'+S.nii++,catId,type:'other',title,url,thumb,memo,time:Date.now(),star:0,feedName:'手動追加'});
   persist();closeAdd();renderSB();renderTags();renderFeed();showToast('追加しました');
 }
-
 function toggleSB(){document.getElementById('sb').classList.toggle('op');document.getElementById('sb-ov').classList.toggle('op');}
 function closeSB(){document.getElementById('sb').classList.remove('op');document.getElementById('sb-ov').classList.remove('op');}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('sh');setTimeout(()=>t.classList.remove('sh'),2500);}
