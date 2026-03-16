@@ -33,6 +33,8 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .cat-nm{font-size:13px;color:var(--fg2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cat-n{font-size:11px;color:var(--fg3);}
 .sb-div{border-top:1px solid var(--border);margin:12px 0;}
+.sb-rss-btn{margin:0 12px;padding:8px 10px;font-size:12px;font-weight:500;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;gap:6px;transition:all .12s;width:calc(100% - 24px);}
+.sb-rss-btn:hover{border-color:var(--ac);color:var(--ac);}
 .lu{font-size:11px;color:var(--fg3);padding:8px 16px 0;text-align:center;}
 .main{flex:1;min-width:0;padding:20px;}
 .tbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
@@ -81,6 +83,49 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .empty{text-align:center;padding:64px 20px;color:var(--fg3);}
 .empty-ico{font-size:48px;margin-bottom:12px;}
 .empty p{font-size:14px;margin-bottom:16px;}
+/* MODAL共通 */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:flex-end;justify-content:center;}
+.mo.op{display:flex;}
+@media(min-width:640px){.mo{align-items:center;padding:20px;}}
+.modal{background:var(--bg);width:100%;max-width:520px;border-radius:var(--rad-lg) var(--rad-lg) 0 0;padding:20px 20px 32px;max-height:90vh;overflow-y:auto;}
+@media(min-width:640px){.modal{border-radius:var(--rad-lg);padding:24px;}}
+.mo-hnd{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 16px;}
+@media(min-width:640px){.mo-hnd{display:none;}}
+.mo-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:16px;}
+.mo-tab{padding:8px 14px;font-size:13px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--fg3);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Noto Sans JP',sans-serif;}
+.mo-tab.on{color:var(--ac);border-bottom-color:var(--ac);}
+.tab-pane{display:none;}
+.tab-pane.on{display:block;}
+.fl{font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;}
+.fi{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;transition:border-color .12s;margin-bottom:10px;}
+.fi:focus{border-color:var(--ac);}
+.fsel{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;appearance:none;margin-bottom:10px;}
+.fsel:focus{border-color:var(--ac);}
+.fta{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;resize:vertical;min-height:60px;margin-bottom:10px;}
+/* RSS管理 */
+.feed-li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rad);margin-bottom:8px;background:var(--bg2);}
+.feed-li .fn{flex:1;min-width:0;}
+.feed-li .fn strong{font-size:13px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.feed-li .fn span{font-size:11px;color:var(--fg3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;}
+.feed-li .fcat{font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
+.fdel{background:none;border:none;color:var(--fg3);cursor:pointer;padding:4px;font-size:16px;}
+.fdel:hover{color:#EF4444;}
+.preset-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.pbtn{padding:4px 10px;font-size:11px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .12s;}
+.pbtn:hover{border-color:var(--ac);color:var(--ac);}
+.mo-btns{display:flex;gap:8px;margin-top:8px;}
+.bc{flex:1;padding:10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+.bs{flex:2;padding:10px;font-size:13px;font-weight:700;border:none;border-radius:var(--rad);background:var(--ac);color:#fff;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+/* YouTube helper */
+.yt-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:12px;}
+.yt-box h4{font-size:13px;font-weight:700;margin-bottom:8px;}
+.yt-row{display:flex;gap:8px;}
+.yt-row input{flex:1;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;}
+.yt-row input:focus{border-color:var(--ac);}
+.yt-row button{padding:8px 12px;background:var(--ac);color:#fff;border:none;border-radius:var(--rad);font-size:12px;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+.yt-res{margin-top:8px;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);display:none;word-break:break-all;color:var(--fg2);}
+.yt-res.show{display:block;}
+.yt-copy{margin-top:6px;padding:5px 10px;font-size:11px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;color:var(--fg2);font-family:'Noto Sans JP',sans-serif;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:#1a1a1a;color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;z-index:400;transition:transform .22s;pointer-events:none;white-space:nowrap;}
 .toast.sh{transform:translateX(-50%) translateY(0);}
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;}
@@ -98,6 +143,7 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 <body>
 <div class="toast" id="toast"></div>
 <div class="sb-ov" id="sb-ov" onclick="closeSB()"></div>
+
 <header class="hdr">
   <button class="btn-i sb-tog" onclick="toggleSB()">
     <svg width="16" height="16" viewBox="0 0 16 16"><rect y="2" width="16" height="1.5" rx=".75" fill="currentColor"/><rect y="7.25" width="16" height="1.5" rx=".75" fill="currentColor"/><rect y="12.5" width="16" height="1.5" rx=".75" fill="currentColor"/></svg>
@@ -112,12 +158,17 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 2.5v3h-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>更新</span>
     </button>
+    <button class="btn-o" onclick="openRss()">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="13" r="1.5" fill="currentColor"/><path d="M2 8.5a5.5 5.5 0 0 1 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 4a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>RSS管理</span>
+    </button>
     <button class="btn-p" onclick="openAdd()">
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
       <span>手動追加</span>
     </button>
   </div>
 </header>
+
 <div class="layout">
   <aside class="sb" id="sb">
     <div style="padding:0 12px;margin-bottom:6px;">
@@ -125,8 +176,13 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
       <div id="cat-list"></div>
     </div>
     <div class="sb-div"></div>
+    <button class="sb-rss-btn" onclick="openRss()">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="13" r="1.5" fill="currentColor"/><path d="M2 8.5a5.5 5.5 0 0 1 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 4a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      RSSフィード管理
+    </button>
     <div class="lu" id="lu"></div>
   </aside>
+
   <main class="main">
     <div class="tbar">
       <div class="pg-ttl" id="pg-ttl">すべて</div>
@@ -148,63 +204,142 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
   </main>
 </div>
 
-<!-- ADD MODAL -->
-<div style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:flex-end;justify-content:center;" id="add-mo" onclick="if(event.target===this)closeAdd()">
-  <div style="background:var(--bg);width:100%;max-width:480px;border-radius:var(--rad-lg) var(--rad-lg) 0 0;padding:20px 20px 32px;max-height:90vh;overflow-y:auto;">
-    <div style="width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 16px;"></div>
+<!-- RSS管理モーダル -->
+<div class="mo" id="rss-mo" onclick="if(event.target===this)closeRss()">
+  <div class="modal">
+    <div class="mo-hnd"></div>
+    <div class="mo-tabs">
+      <button class="mo-tab on" onclick="stab('list')">登録済み</button>
+      <button class="mo-tab" onclick="stab('add')">追加</button>
+      <button class="mo-tab" onclick="stab('yt')">YouTubeヘルパー</button>
+    </div>
+    <div class="tab-pane on" id="tab-list">
+      <div id="feed-list-el"></div>
+      <div id="no-feeds" style="text-align:center;padding:24px;color:var(--fg3);font-size:13px;display:none;">フィードがありません</div>
+      <button class="bs" style="width:100%;margin-top:10px" onclick="refreshAll();closeRss()">全フィードを今すぐ更新</button>
+    </div>
+    <div class="tab-pane" id="tab-add">
+      <label class="fl">フィード名（任意）</label>
+      <input class="fi" id="f-name" placeholder="例：咲熊、文春オンライン...">
+      <label class="fl">RSS URL <span style="color:var(--ac)">*</span></label>
+      <input class="fi" id="f-url" placeholder="https://... または /proxy/yt/UCxxxxxx">
+      <label class="fl">カテゴリ</label>
+      <select class="fsel" id="f-cat"></select>
+      <label class="fl">種別</label>
+      <select class="fsel" id="f-type">
+        <option value="video">🎬 動画</option>
+        <option value="article" selected>📰 記事</option>
+        <option value="book">📚 書籍・漫画</option>
+        <option value="music">🎵 音楽・舞台</option>
+        <option value="other">💡 その他</option>
+      </select>
+      <label class="fl" style="margin-bottom:6px;">プリセット</label>
+      <div class="preset-row">
+        <button class="pbtn" onclick="preset('/proxy/rss/bunshun','文春オンライン','article')">文春オンライン</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/amazon','Amazon新刊','book')">Amazon新刊</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/note-scenario','note #脚本','article')">note #脚本</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/note-manga','note #漫画','article')">note #漫画</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/note-musical','note #ミュージカル','article')">note #ミュージカル</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/note-movie','note #映画','article')">note #映画</button>
+        <button class="pbtn" onclick="preset('/proxy/rss/note-anime','note #アニメ','article')">note #アニメ</button>
+      </div>
+      <div class="mo-btns">
+        <button class="bc" onclick="closeRss()">キャンセル</button>
+        <button class="bs" onclick="addFeed()">登録する</button>
+      </div>
+    </div>
+    <div class="tab-pane" id="tab-yt">
+      <div class="yt-box">
+        <h4>🎬 チャンネルURL → RSS生成</h4>
+        <p style="font-size:12px;color:var(--fg2);margin-bottom:8px;">YouTubeチャンネルのURLを貼ると、プロキシURLを生成します。</p>
+        <div class="yt-row">
+          <input id="yt-url" placeholder="https://www.youtube.com/channel/UC...">
+          <button onclick="genYt()">生成</button>
+        </div>
+        <div class="yt-res" id="yt-res"></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px;font-size:12px;color:var(--fg2);line-height:1.8;">
+        <strong>💡 チャンネルIDの調べ方</strong><br>
+        チャンネルページを右クリック →「ページのソースを表示」→ <code>Ctrl+F</code> で <code>channel_id</code> を検索
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 手動追加モーダル -->
+<div class="mo" id="add-mo" onclick="if(event.target===this)closeAdd()">
+  <div class="modal">
+    <div class="mo-hnd"></div>
     <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;">手動でインプットを追加</h3>
-    <label style="font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;">タイトル *</label>
-    <input style="width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;margin-bottom:10px;" id="m-title" placeholder="タイトルを入力...">
-    <label style="font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;">URL（任意）</label>
-    <input style="width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;margin-bottom:10px;" id="m-url" placeholder="https://...">
-    <label style="font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;">カテゴリ</label>
-    <select style="width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;appearance:none;margin-bottom:10px;" id="m-cat"></select>
-    <label style="font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;">メモ（任意）</label>
-    <textarea style="width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;resize:vertical;min-height:60px;margin-bottom:10px;" id="m-memo" placeholder="メモ..."></textarea>
-    <div style="display:flex;gap:8px;margin-top:8px;">
-      <button style="flex:1;padding:10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;" onclick="closeAdd()">キャンセル</button>
-      <button style="flex:2;padding:10px;font-size:13px;font-weight:700;border:none;border-radius:var(--rad);background:var(--ac);color:#fff;cursor:pointer;font-family:'Noto Sans JP',sans-serif;" onclick="saveItem()">保存する</button>
+    <label class="fl">タイトル *</label>
+    <input class="fi" id="m-title" placeholder="タイトルを入力...">
+    <label class="fl">URL（任意）</label>
+    <input class="fi" id="m-url" placeholder="https://...">
+    <label class="fl">カテゴリ</label>
+    <select class="fsel" id="m-cat"></select>
+    <label class="fl">メモ（任意）</label>
+    <textarea class="fta" id="m-memo" placeholder="脚本への応用メモなど..."></textarea>
+    <div class="mo-btns">
+      <button class="bc" onclick="closeAdd()">キャンセル</button>
+      <button class="bs" onclick="saveItem()">保存する</button>
     </div>
   </div>
 </div>
 
 <script>
-// ===== FEEDS CONFIG =====
-// _redirects でプロキシされたURLを使用
-const FEEDS = [
-  { id:'sakuma',   name:'咲熊',          catId:5, type:'video',   url:'/proxy/yt/UCNQMIxQfa43QkkudqAap_9A' },
-  { id:'ore',      name:'俺の世界史ch',   catId:5, type:'video',   url:'/proxy/yt/UCN1LT_sxN2A-aZU-9YdblYg' },
-  { id:'takarazuka', name:'宝塚公式',     catId:3, type:'music',   url:'/proxy/yt/UCpmLMQwZl7-sKHqFWzKZKrQ' },
-  { id:'jump',     name:'ジャンプ公式',   catId:2, type:'book',    url:'/proxy/yt/UCTThOe_3n0WJZ9sRWAMa2aA' },
-  { id:'bunshun',  name:'文春オンライン', catId:1, type:'article', url:'/proxy/rss/bunshun.jp%2Frss%2Flist' },
-  { id:'amazon',   name:'Amazon新刊',    catId:2, type:'book',    url:'/proxy/rss/www.amazon.co.jp%2Frss%2Fnew-releases%2Fbooks%2F' },
-  { id:'note-scenario', name:'note #脚本', catId:1, type:'article', url:'/proxy/rss/note.com%2Fhashtag%2F%E8%84%9A%E6%9C%AC%2Frss' },
-  { id:'note-manga',    name:'note #漫画', catId:2, type:'article', url:'/proxy/rss/note.com%2Fhashtag%2F%E6%BC%AB%E7%94%BB%2Frss' },
-  { id:'note-musical',  name:'note #ミュージカル', catId:3, type:'article', url:'/proxy/rss/note.com%2Fhashtag%2F%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%AB%E3%83%AB%2Frss' },
-];
-
+// ===== カテゴリ定義 =====
 const CATS = [
-  {id:1, name:'脚本・映画',       color:'#F59E0B', bg:'#FEF3C7'},
-  {id:2, name:'書籍・漫画',       color:'#10B981', bg:'#D1FAE5'},
-  {id:3, name:'ミュージカル・音楽', color:'#8B5CF6', bg:'#EDE9FE'},
-  {id:4, name:'宇宙・科学',       color:'#6366F1', bg:'#EEF2FF'},
-  {id:5, name:'歴史',             color:'#0EA5E9', bg:'#E0F2FE'},
+  {id:1, name:'脚本・映画',         color:'#F59E0B', bg:'#FEF3C7'},
+  {id:2, name:'書籍・漫画・アニメ',  color:'#10B981', bg:'#D1FAE5'},
+  {id:3, name:'ミュージカル・音楽',   color:'#8B5CF6', bg:'#EDE9FE'},
+  {id:4, name:'宇宙・科学',          color:'#6366F1', bg:'#EEF2FF'},
+  {id:5, name:'歴史',                color:'#0EA5E9', bg:'#E0F2FE'},
 ];
 
 const TM = {
-  video:   {icon:'🎬',label:'動画',   color:'#EF4444',bg:'#FEE2E2'},
-  article: {icon:'📰',label:'記事',   color:'#6366F1',bg:'#EEF2FF'},
-  book:    {icon:'📚',label:'書籍',   color:'#10B981',bg:'#D1FAE5'},
+  video:   {icon:'🎬',label:'動画',    color:'#EF4444',bg:'#FEE2E2'},
+  article: {icon:'📰',label:'記事',    color:'#6366F1',bg:'#EEF2FF'},
+  book:    {icon:'📚',label:'書籍',    color:'#10B981',bg:'#D1FAE5'},
   music:   {icon:'🎵',label:'音楽・舞台',color:'#8B5CF6',bg:'#EDE9FE'},
-  other:   {icon:'💡',label:'その他', color:'#F59E0B',bg:'#FEF3C7'},
+  other:   {icon:'💡',label:'その他',  color:'#F59E0B',bg:'#FEF3C7'},
 };
 
+// ===== デフォルトフィード（_redirects経由で確実に動作） =====
+const DEFAULT_FEEDS = [
+  // 歴史
+  {id:'sakuma',    name:'咲熊',           catId:5, type:'video',   url:'/proxy/yt/UCNQMIxQfa43QkkudqAap_9A'},
+  {id:'ore',       name:'俺の世界史ch',    catId:5, type:'video',   url:'/proxy/yt/UCN1LT_sxN2A-aZU-9YdblYg'},
+  {id:'piyosoku',  name:'ぴよぴーよ速報',  catId:5, type:'video',   url:'/proxy/yt/UCqO3c4rN70PR0yHWLDCNUXQ'},
+  // 宇宙・科学
+  {id:'bright',    name:'ブライトサイド',   catId:4, type:'video',   url:'/proxy/yt/UCddiUEpeqJcYeBxX1IVBKvQ'},
+  {id:'codomo',    name:'古代生物ちゃんねる',catId:4, type:'video',   url:'/proxy/yt/UCWCSPcNAFDkRRVTjvECl5qg'},
+  // 漫画・アニメ・映画
+  {id:'jump',      name:'ジャンプ公式',     catId:2, type:'video',   url:'/proxy/yt/UCTThOe_3n0WJZ9sRWAMa2aA'},
+  // ミュージカル
+  {id:'takarazuka',name:'宝塚公式',         catId:3, type:'video',   url:'/proxy/yt/UCpmLMQwZl7-sKHqFWzKZKrQ'},
+  // 記事
+  {id:'bunshun',   name:'文春オンライン',   catId:1, type:'article', url:'/proxy/rss/bunshun'},
+  {id:'amazon',    name:'Amazon新刊',       catId:2, type:'book',    url:'/proxy/rss/amazon'},
+  {id:'note-sc',   name:'note #脚本',       catId:1, type:'article', url:'/proxy/rss/note-scenario'},
+  {id:'note-mn',   name:'note #漫画',       catId:2, type:'article', url:'/proxy/rss/note-manga'},
+  {id:'note-mu',   name:'note #ミュージカル',catId:3, type:'article', url:'/proxy/rss/note-musical'},
+  {id:'note-mv',   name:'note #映画',       catId:1, type:'article', url:'/proxy/rss/note-movie'},
+  {id:'note-an',   name:'note #アニメ',     catId:2, type:'article', url:'/proxy/rss/note-anime'},
+];
+
+// ===== 状態管理 =====
 function loadState(){
-  try{const s=localStorage.getItem('inp_v8');if(s)return JSON.parse(s);}catch(e){}
-  return{items:[],selCat:null,view:'grid',nii:1,lastUpdated:null};
+  try{const s=localStorage.getItem('inp_v9');if(s)return JSON.parse(s);}catch(e){}
+  // 初回はデフォルトフィードをセット
+  return{feeds:[...DEFAULT_FEEDS],items:[],selCat:null,view:'grid',nii:1,lastUpdated:null};
 }
 let S=loadState();
-function persist(){localStorage.setItem('inp_v8',JSON.stringify(S));}
+// デフォルトフィードに新しいものがあれば追加
+DEFAULT_FEEDS.forEach(df=>{
+  if(!S.feeds.find(f=>f.id===df.id)) S.feeds.push(df);
+});
+
+function persist(){localStorage.setItem('inp_v9',JSON.stringify(S));}
 function getcat(id){return CATS.find(c=>c.id===id);}
 function ago(ts){
   const d=(Date.now()-ts)/1000;
@@ -214,6 +349,7 @@ function ago(ts){
   return new Date(ts).toLocaleDateString('ja-JP',{month:'short',day:'numeric'});
 }
 function ytId(url){
+  if(!url)return null;
   try{const u=new URL(url);
     if(u.hostname.includes('youtube.com'))return u.searchParams.get('v');
     if(u.hostname.includes('youtu.be'))return u.pathname.slice(1);
@@ -221,49 +357,42 @@ function ytId(url){
 }
 function ytThumb(id){return`https://img.youtube.com/vi/${id}/mqdefault.jpg`;}
 
-// ===== RSS FETCH via _redirects proxy =====
+// ===== RSS取得 =====
 async function fetchFeed(feed){
   try{
-    const r = await fetch(feed.url, {signal:AbortSignal.timeout(10000)});
-    const xml = await r.text();
-    if(!xml||!xml.includes('<')) return [];
-    return parseXml(xml, feed);
-  }catch(e){return [];}
+    const r=await fetch(feed.url,{signal:AbortSignal.timeout(10000)});
+    const xml=await r.text();
+    if(!xml||xml.trim().startsWith('{')||!xml.includes('<'))return[];
+    return parseXml(xml,feed);
+  }catch(e){return[];}
 }
 
-function parseXml(xml, feed){
+function parseXml(xml,feed){
   const items=[];
-  const isYt = feed.url.includes('/proxy/yt/');
-  const re = /<entry[^>]*>([\s\S]*?)<\/entry>|<item[^>]*>([\s\S]*?)<\/item>/gi;
+  const re=/<entry[^>]*>([\s\S]*?)<\/entry>|<item[^>]*>([\s\S]*?)<\/item>/gi;
   let m;
-  while((m=re.exec(xml))!==null && items.length<20){
-    const block=m[1]||m[2];
+  while((m=re.exec(xml))!==null&&items.length<20){
+    const b=m[1]||m[2];
     const get=tag=>{
       const r=new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${tag}>`,'i');
-      const rm=block.match(r);return rm?rm[1].replace(/<[^>]+>/g,'').trim():'';
+      const rm=b.match(r);return rm?rm[1].replace(/<[^>]+>/g,'').trim():'';
     };
-    const getAttr=(tag,attr)=>{
-      const r=new RegExp(`<${tag}[^>]*${attr}=["']([^"']+)["']`,'i');
-      const rm=block.match(r);return rm?rm[1]:'';
-    };
-    let link=get('link')||getAttr('link','href');
-    if(!link){const g=block.match(/<guid[^>]*>([^<]+)<\/guid>/i);if(g&&g[1].startsWith('http'))link=g[1].trim();}
-    const mt=block.match(/<media:thumbnail[^>]*url=["']([^"']+)["']/i);
-    const mc=block.match(/<media:content[^>]*url=["']([^"']+)["']/i);
-    const enc=block.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
-    const imgD=block.match(/<img[^>]+src=["']([^"']+)["']/i);
-    const pubDate=get('pubDate')||get('published')||get('updated')||'';
-    const title=get('title');
-    if(!title)continue;
-    // For YouTube, extract video ID from link
+    const ga=(tag,attr)=>{const r=new RegExp(`<${tag}[^>]*${attr}=["']([^"']+)["']`,'i');const rm=b.match(r);return rm?rm[1]:'';};
+    let link=get('link')||ga('link','href');
+    if(!link){const g=b.match(/<guid[^>]*>([^<]+)<\/guid>/i);if(g&&g[1].startsWith('http'))link=g[1].trim();}
+    const mt=b.match(/<media:thumbnail[^>]*url=["']([^"']+)["']/i);
+    const mc=b.match(/<media:content[^>]*url=["']([^"']+)["']/i);
+    const enc=b.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
+    const imgD=b.match(/<img[^>]+src=["']([^"']+)["']/i);
+    const pub=get('pubDate')||get('published')||get('updated')||'';
+    const title=get('title');if(!title)continue;
     const vid=ytId(link);
     let thumb=(mt&&mt[1])||(mc&&mc[1])||(enc&&enc[1])||(imgD&&imgD[1])||'';
     if(!thumb&&vid)thumb=ytThumb(vid);
     items.push({
       id:'r_'+Date.now()+'_'+Math.random().toString(36).slice(2,6),
-      catId:feed.catId,type:feed.type,
-      title,url:link,thumb,memo:'',
-      time:pubDate?new Date(pubDate).getTime():Date.now(),
+      catId:feed.catId,type:feed.type,title,url:link,thumb,memo:'',
+      time:pub?new Date(pub).getTime():Date.now(),
       star:0,feedName:feed.name
     });
   }
@@ -271,13 +400,14 @@ function parseXml(xml, feed){
 }
 
 async function refreshAll(){
+  if(!S.feeds.length){showToast('フィードがありません');openRss();return;}
   const bar=document.getElementById('ubar'),msg=document.getElementById('umsg');
   bar.className='ubar show';
   const existUrls=new Set(S.items.map(i=>i.url).filter(Boolean));
   let newCount=0,failCount=0;
-  for(let i=0;i<FEEDS.length;i++){
-    const f=FEEDS[i];
-    msg.textContent=`「${f.name}」を取得中... (${i+1}/${FEEDS.length})`;
+  for(let i=0;i<S.feeds.length;i++){
+    const f=S.feeds[i];
+    msg.textContent=`「${f.name}」を取得中... (${i+1}/${S.feeds.length})`;
     const its=await fetchFeed(f);
     if(its.length>0){
       for(const it of its){
@@ -286,17 +416,18 @@ async function refreshAll(){
         S.items.unshift(it);newCount++;
       }
     }else failCount++;
-    await new Promise(r=>setTimeout(r,300));
+    await new Promise(r=>setTimeout(r,250));
   }
   if(S.items.length>800)S.items=S.items.slice(0,800);
-  S.lastUpdated=Date.now();
-  persist();bar.className='ubar';
+  S.lastUpdated=Date.now();persist();
+  bar.className='ubar';
   renderSB();renderTags();renderFeed();
   let t=newCount>0?`${newCount}件取得しました`:'新しいアイテムはありませんでした';
   if(failCount>0)t+=`（${failCount}件失敗）`;
   showToast(t);
 }
 
+// ===== RENDER =====
 function renderSB(){
   const el=document.getElementById('cat-list');
   let h=`<div class="cat-r ${S.selCat===null?'on':''}" onclick="selCat(null)">
@@ -385,31 +516,101 @@ function renderFeed(){
     }).join('');
   }
 }
+
 function selCat(id){S.selCat=id;closeSB();renderSB();renderTags();renderFeed();}
 function setView(v){S.view=v;persist();document.getElementById('vg').className='vb'+(v==='grid'?' on':'');document.getElementById('vl').className='vb'+(v==='list'?' on':'');renderFeed();}
 function delItem(id){S.items=S.items.filter(i=>i.id!==id);persist();renderSB();renderFeed();showToast('削除しました');}
 function cycleStar(id){const item=S.items.find(i=>i.id===id);if(item){item.star=((item.star||0)+1)%4;persist();renderFeed();}}
+
+// ===== RSS管理 =====
+function openRss(){renderFeedList();fillSels();document.getElementById('rss-mo').className='mo op';stab('list');}
+function closeRss(){document.getElementById('rss-mo').className='mo';}
+function stab(t){
+  ['list','add','yt'].forEach((n,i)=>{
+    document.getElementById('tab-'+n).className='tab-pane'+(n===t?' on':'');
+    document.querySelectorAll('.mo-tab')[i].className='mo-tab'+(n===t?' on':'');
+  });
+}
+function renderFeedList(){
+  const el=document.getElementById('feed-list-el');
+  const no=document.getElementById('no-feeds');
+  if(!S.feeds.length){el.innerHTML='';no.style.display='block';return;}
+  no.style.display='none';
+  el.innerHTML=S.feeds.map(f=>{
+    const c=getcat(f.catId);
+    return`<div class="feed-li">
+      <div style="width:28px;height:28px;border-radius:50%;background:${c?.color||'#888'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">${(c?.name||'?')[0]}</div>
+      <div class="fn"><strong>${f.name}</strong><span>${f.url}</span></div>
+      <span class="fcat" style="background:${c?.bg||'#f5f5f5'};color:${c?.color||'#888'}">${c?.name||''}</span>
+      <button class="fdel" onclick="delFeed('${f.id}')">×</button>
+    </div>`;
+  }).join('');
+}
+function addFeed(){
+  const url=document.getElementById('f-url').value.trim();if(!url)return;
+  const name=document.getElementById('f-name').value.trim()||url.split('/').pop();
+  const catId=parseInt(document.getElementById('f-cat').value);
+  const type=document.getElementById('f-type').value;
+  const id='u_'+Date.now();
+  S.feeds.push({id,name,url,catId,type});
+  persist();
+  document.getElementById('f-url').value='';document.getElementById('f-name').value='';
+  renderFeedList();showToast(`「${name}」を登録しました`);stab('list');
+}
+function delFeed(id){
+  S.feeds=S.feeds.filter(f=>f.id!==id);
+  S.items=S.items.filter(i=>i.feedName!==S.feeds.find(f=>f.id===id)?.name);
+  persist();renderFeedList();renderSB();renderFeed();showToast('削除しました');
+}
+function preset(url,name,type){
+  stab('add');
+  document.getElementById('f-url').value=url;
+  document.getElementById('f-name').value=name;
+  document.getElementById('f-type').value=type;
+}
+function genYt(){
+  const inp=document.getElementById('yt-url').value.trim();
+  const res=document.getElementById('yt-res');
+  const m=inp.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
+  if(m){
+    const proxyUrl=`/proxy/yt/${m[1]}`;
+    res.innerHTML=`<div style="margin-bottom:6px;">${proxyUrl}</div><button class="yt-copy" onclick="useYt('${proxyUrl}')">このURLをフィード追加へ →</button>`;
+    res.className='yt-res show';
+  }else{
+    res.innerHTML='URLに <code>channel/UC...</code> のIDが見つかりません。';
+    res.className='yt-res show';
+  }
+}
+function useYt(url){stab('add');document.getElementById('f-url').value=url;document.getElementById('f-type').value='video';showToast('URLをセットしました');}
+
+function fillSels(){
+  const opts=CATS.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  ['f-cat','m-cat'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=opts;});
+}
+
+// ===== 手動追加 =====
 function openAdd(){
-  document.getElementById('m-cat').innerHTML=CATS.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  fillSels();
   ['m-title','m-url','m-memo'].forEach(id=>document.getElementById(id).value='');
-  const mo=document.getElementById('add-mo');mo.style.display='flex';
+  document.getElementById('add-mo').className='mo op';
   setTimeout(()=>document.getElementById('m-title').focus(),80);
 }
-function closeAdd(){document.getElementById('add-mo').style.display='none';}
+function closeAdd(){document.getElementById('add-mo').className='mo';}
 function saveItem(){
   const title=document.getElementById('m-title').value.trim();if(!title)return;
   const url=document.getElementById('m-url').value.trim();
   const catId=parseInt(document.getElementById('m-cat').value);
   const memo=document.getElementById('m-memo').value.trim();
-  const vid=ytId(url);
-  const thumb=vid?ytThumb(vid):'';
+  const vid=ytId(url);const thumb=vid?ytThumb(vid):'';
   S.items.unshift({id:'m_'+S.nii++,catId,type:'other',title,url,thumb,memo,time:Date.now(),star:0,feedName:'手動追加'});
   persist();closeAdd();renderSB();renderTags();renderFeed();showToast('追加しました');
 }
+
 function toggleSB(){document.getElementById('sb').classList.toggle('op');document.getElementById('sb-ov').classList.toggle('op');}
 function closeSB(){document.getElementById('sb').classList.remove('op');document.getElementById('sb-ov').classList.remove('op');}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('sh');setTimeout(()=>t.classList.remove('sh'),2500);}
-renderSB();renderTags();renderFeed();
+
+renderSB();renderTags();renderFeed();fillSels();
 </script>
 </body>
 </html>
