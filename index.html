@@ -8,9 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ac:#4F46E5;--ac-lt:#EEF2FF;--fg:#1a1a1a;--fg2:#555;--fg3:#999;--bg:#fff;--bg2:#f8f8f6;--bg3:#f2f2ef;--border:#e5e5e0;--border2:#d0d0ca;--rad:8px;--rad-lg:12px;}
-@media(prefers-color-scheme:dark){:root{--fg:#f0f0ec;--fg2:#aaa;--fg3:#555;--bg:#141414;--bg2:#1e1e1c;--bg3:#282826;--border:#2e2e2c;--border2:#3a3a38;--ac-lt:#1e1b4b;}}
+:root{
+  --ac:#4F46E5;--ac-lt:#EEF2FF;
+  --fg:#1a1a1a;--fg2:#555;--fg3:#999;
+  --bg:#fff;--bg2:#f8f8f6;--bg3:#f2f2ef;
+  --border:#e5e5e0;--border2:#d0d0ca;
+  --rad:8px;--rad-lg:12px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --fg:#f0f0ec;--fg2:#aaa;--fg3:#555;
+  --bg:#141414;--bg2:#1e1e1c;--bg3:#282826;
+  --border:#2e2e2c;--border2:#3a3a38;--ac-lt:#1e1b4b;
+}}
 body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);min-height:100vh;font-size:14px;}
+
+/* HEADER */
 .hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--border);height:52px;padding:0 16px;display:flex;align-items:center;gap:12px;}
 .logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--ac);flex-shrink:0;}
 .srch{flex:1;max-width:380px;display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;}
@@ -21,11 +33,16 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .btn-o{background:transparent;border:1px solid var(--border);border-radius:var(--rad);padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;color:var(--fg2);display:flex;align-items:center;gap:5px;font-family:'Noto Sans JP',sans-serif;transition:all .12s;white-space:nowrap;}
 .btn-o:hover{border-color:var(--ac);color:var(--ac);}
 .btn-i{background:transparent;border:1px solid var(--border);border-radius:var(--rad);padding:6px 8px;cursor:pointer;color:var(--fg2);display:flex;align-items:center;}
+.btn-i:hover{border-color:var(--border2);}
 .sb-tog{display:none;}
+
+/* LAYOUT */
 .layout{display:flex;min-height:calc(100vh - 52px);}
+
+/* SIDEBAR */
 .sb{width:215px;flex-shrink:0;border-right:1px solid var(--border);padding:14px 0;background:var(--bg2);position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;display:flex;flex-direction:column;}
 .sb-lbl{font-size:10px;font-weight:700;color:var(--fg3);letter-spacing:.1em;text-transform:uppercase;padding:0 16px 8px;}
-.cat-r{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;transition:background .1s;}
+.cat-r{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;transition:background .1s;position:relative;}
 .cat-r:hover{background:var(--bg3);}
 .cat-r.on{background:var(--ac-lt);}
 .cat-r.on .cat-nm{color:var(--ac);font-weight:500;}
@@ -39,10 +56,12 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .add-frm input:focus{border-color:var(--ac);}
 .add-btn{width:100%;margin-top:5px;padding:6px;font-size:12px;border:1px dashed var(--border2);border-radius:var(--rad);background:transparent;color:var(--fg3);cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .12s;}
 .add-btn:hover{border-color:var(--ac);color:var(--ac);}
-.sb-div{border-top:1px solid var(--border);margin:12px 0;}
-.rss-btn{margin:0 12px;padding:8px 10px;font-size:12px;font-weight:500;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;gap:6px;transition:all .12s;width:calc(100% - 24px);}
-.rss-btn:hover{border-color:var(--ac);color:var(--ac);}
-.lu{font-size:11px;color:var(--fg3);padding:8px 16px 0;text-align:center;}
+.sb-divider{border-top:1px solid var(--border);margin:12px 0;}
+.rss-manage-btn{margin:0 12px;padding:8px 10px;font-size:12px;font-weight:500;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;gap:6px;transition:all .12s;width:calc(100% - 24px);}
+.rss-manage-btn:hover{border-color:var(--ac);color:var(--ac);}
+.last-updated{font-size:11px;color:var(--fg3);padding:8px 16px 0;text-align:center;}
+
+/* MAIN */
 .main{flex:1;min-width:0;padding:20px;}
 .tbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
 .pg-ttl{font-size:16px;font-weight:700;}
@@ -53,17 +72,21 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
 .tchip{padding:4px 12px;border-radius:20px;font-size:12px;border:1px solid var(--border);color:var(--fg2);cursor:pointer;background:transparent;font-family:'Noto Sans JP',sans-serif;transition:all .12s;white-space:nowrap;}
 .tchip:hover{border-color:var(--ac);color:var(--ac);}
-.ubar{background:var(--ac-lt);border:1px solid var(--ac);border-radius:var(--rad);padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--ac);display:none;align-items:center;gap:8px;}
-.ubar.show{display:flex;}
-.spin{width:14px;height:14px;border:2px solid var(--ac);border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0;}
+
+/* UPDATING BANNER */
+.update-bar{background:var(--ac-lt);border:1px solid var(--ac);border-radius:var(--rad);padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--ac);display:none;align-items:center;gap:8px;}
+.update-bar.show{display:flex;}
+.spinner{width:14px;height:14px;border:2px solid var(--ac);border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0;}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* GRID */
 .yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
-.yc{cursor:default;border-radius:var(--rad-lg);overflow:hidden;transition:transform .15s;}
+.yc{cursor:default;border-radius:var(--rad-lg);overflow:hidden;background:transparent;transition:transform .15s;}
 .yc:hover{transform:translateY(-2px);}
 .ythumb{position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--rad-lg);overflow:hidden;background:var(--bg3);}
 .ythumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .ythumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:38px;}
-.yc-src{position:absolute;bottom:7px;left:8px;background:rgba(0,0,0,.6);color:#fff;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:500;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.yc-src{position:absolute;bottom:7px;left:8px;background:rgba(0,0,0,.6);color:#fff;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:500;}
 .yc-star{position:absolute;top:7px;right:8px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:4px;padding:2px 7px;font-size:12px;cursor:pointer;}
 .yc-del{position:absolute;top:7px;left:8px;background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:4px;padding:2px 7px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .12s;}
 .yc:hover .yc-del{opacity:1;}
@@ -74,7 +97,9 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .yc-ttl a{color:inherit;text-decoration:none;}
 .yc-ttl a:hover{text-decoration:underline;}
 .yc-sub{font-size:11px;color:var(--fg3);display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
-.tbadge{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;}
+.type-badge{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;}
+
+/* LIST */
 .f-list{display:flex;flex-direction:column;gap:8px;}
 .li{display:flex;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--rad-lg);background:var(--bg);transition:border-color .12s;}
 .li:hover{border-color:var(--border2);}
@@ -87,9 +112,16 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 .li-meta{font-size:11px;color:var(--fg3);display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .li-del{opacity:0;background:none;border:none;color:var(--fg3);cursor:pointer;font-size:15px;padding:4px;align-self:center;}
 .li:hover .li-del{opacity:1;}
+
+/* RSS SOURCE LABEL */
+.rss-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:3px;}
+
+/* EMPTY */
 .empty{text-align:center;padding:64px 20px;color:var(--fg3);}
 .empty-ico{font-size:48px;margin-bottom:12px;}
 .empty p{font-size:14px;margin-bottom:16px;}
+
+/* ===== RSS MANAGEMENT MODAL ===== */
 .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;align-items:flex-end;justify-content:center;}
 .mo.op{display:flex;}
 @media(min-width:640px){.mo{align-items:center;padding:20px;}}
@@ -97,63 +129,81 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 @media(min-width:640px){.modal{border-radius:var(--rad-lg);padding:24px;max-height:85vh;}}
 .mo-hnd{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 16px;}
 @media(min-width:640px){.mo-hnd{display:none;}}
-.mo-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:18px;}
-.mo-tab{padding:8px 14px;font-size:13px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--fg3);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Noto Sans JP',sans-serif;}
+.mo-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:18px;}
+.mo-tab{padding:8px 16px;font-size:13px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--fg3);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Noto Sans JP',sans-serif;transition:all .12s;}
 .mo-tab.on{color:var(--ac);border-bottom-color:var(--ac);}
 .tab-pane{display:none;}
 .tab-pane.on{display:block;}
-.feed-li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rad);margin-bottom:8px;background:var(--bg2);}
-.feed-li .fn{flex:1;min-width:0;}
-.feed-li .fn strong{font-size:13px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.feed-li .fn span{font-size:11px;color:var(--fg3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;}
-.fc-badge{font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
-.fdel{background:none;border:none;color:var(--fg3);cursor:pointer;padding:4px;font-size:16px;flex-shrink:0;}
-.fdel:hover{color:#EF4444;}
+
+/* RSS LIST */
+.feed-list-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rad);margin-bottom:8px;background:var(--bg2);}
+.feed-list-item .feed-name{flex:1;min-width:0;}
+.feed-list-item .feed-name strong{font-size:13px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.feed-list-item .feed-name span{font-size:11px;color:var(--fg3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;}
+.feed-cat-badge{font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
+.feed-del-btn{background:none;border:none;color:var(--fg3);cursor:pointer;padding:4px;font-size:16px;flex-shrink:0;}
+.feed-del-btn:hover{color:#EF4444;}
+
+/* ADD FEED FORM */
 .fl{font-size:12px;color:var(--fg2);display:block;margin-bottom:4px;font-weight:500;}
 .fi{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;transition:border-color .12s;margin-bottom:10px;}
 .fi:focus{border-color:var(--ac);}
 .fsel{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;appearance:none;margin-bottom:10px;}
 .fsel:focus{border-color:var(--ac);}
+
+/* YOUTUBE HELPER */
+.yt-helper{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:16px;}
+.yt-helper h4{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.yt-inp-row{display:flex;gap:8px;}
+.yt-inp-row input{flex:1;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;}
+.yt-inp-row input:focus{border-color:var(--ac);}
+.yt-inp-row button{padding:8px 12px;background:var(--ac);color:#fff;border:none;border-radius:var(--rad);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'Noto Sans JP',sans-serif;}
+.yt-result{margin-top:8px;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);display:none;word-break:break-all;color:var(--fg2);}
+.yt-result.show{display:block;}
+.yt-copy-btn{margin-top:6px;padding:5px 10px;font-size:11px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;color:var(--fg2);font-family:'Noto Sans JP',sans-serif;}
+
+/* MANUAL ADD */
 .fta{width:100%;padding:9px 12px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg2);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;resize:vertical;min-height:60px;margin-bottom:10px;}
 .fta:focus{border-color:var(--ac);}
-.preset-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
-.pbtn{padding:4px 10px;font-size:11px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .12s;}
-.pbtn:hover{border-color:var(--ac);color:var(--ac);}
-.yt-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:14px;}
-.yt-box h4{font-size:13px;font-weight:700;margin-bottom:8px;}
-.yt-row{display:flex;gap:8px;}
-.yt-row input{flex:1;padding:8px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:var(--bg);color:var(--fg);outline:none;font-family:'Noto Sans JP',sans-serif;}
-.yt-row input:focus{border-color:var(--ac);}
-.yt-row button{padding:8px 12px;background:var(--ac);color:#fff;border:none;border-radius:var(--rad);font-size:12px;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
-.yt-res{margin-top:8px;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);display:none;word-break:break-all;color:var(--fg2);}
-.yt-res.show{display:block;}
-.yt-copy{margin-top:6px;padding:5px 10px;font-size:11px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;color:var(--fg2);font-family:'Noto Sans JP',sans-serif;}
-.type-sel{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;}
-.type-opt{padding:8px 4px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;text-align:center;font-family:'Noto Sans JP',sans-serif;}
-.type-opt .ti{font-size:18px;display:block;margin-bottom:3px;}
-.type-opt .tl{font-size:11px;color:var(--fg2);}
-.type-opt.on{border-color:var(--ac);background:var(--ac-lt);}
-.type-opt.on .tl{color:var(--ac);font-weight:500;}
-.uprev{border-radius:var(--rad);overflow:hidden;margin-bottom:10px;display:none;border:1px solid var(--border);}
-.uprev img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
-.uprev-inf{padding:8px 10px;background:var(--bg2);}
-.uprev-ttl{font-size:12px;font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.uprev-site{font-size:11px;color:var(--fg3);}
-.ai-hint{font-size:11px;color:var(--ac);min-height:14px;margin-top:-6px;margin-bottom:8px;cursor:pointer;}
 .star-row{display:flex;gap:6px;margin-bottom:10px;}
 .sb2{background:none;border:1px solid var(--border);border-radius:var(--rad);padding:5px 11px;font-size:15px;cursor:pointer;color:var(--fg3);}
 .sb2.on{background:#FEF3C7;border-color:#F59E0B;color:#D97706;}
+.type-sel{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;}
+.type-opt{padding:8px 4px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;cursor:pointer;text-align:center;font-family:'Noto Sans JP',sans-serif;}
+.type-opt .t-ico{font-size:18px;display:block;margin-bottom:3px;}
+.type-opt .t-lbl{font-size:11px;color:var(--fg2);}
+.type-opt.on{border-color:var(--ac);background:var(--ac-lt);}
+.type-opt.on .t-lbl{color:var(--ac);font-weight:500;}
+.uprev{border-radius:var(--rad);overflow:hidden;margin-bottom:10px;display:none;border:1px solid var(--border);}
+.uprev img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+.uprev-inf{padding:8px 10px;background:var(--bg2);}
+.uprev-title{font-size:12px;font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.uprev-site{font-size:11px;color:var(--fg3);}
+.ai-hint{font-size:11px;color:var(--ac);min-height:14px;margin-top:-6px;margin-bottom:8px;cursor:pointer;}
+
 .mo-btns{display:flex;gap:8px;margin-top:8px;}
 .bc{flex:1;padding:10px;font-size:13px;border:1px solid var(--border);border-radius:var(--rad);background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
 .bs{flex:2;padding:10px;font-size:13px;font-weight:700;border:none;border-radius:var(--rad);background:var(--ac);color:#fff;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+
+/* CFG */
+.cfg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:20px;}
+.cfg.op{display:flex;}
+.cfg-box{background:var(--bg);width:100%;max-width:400px;border-radius:var(--rad-lg);padding:24px;}
+.cfg-box h3{font-size:15px;font-weight:700;margin-bottom:6px;}
+.cfg-box p{font-size:12px;color:var(--fg2);margin-bottom:14px;line-height:1.7;}
+
+/* TOAST */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:#1a1a1a;color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;z-index:400;transition:transform .22s;pointer-events:none;white-space:nowrap;}
 .toast.sh{transform:translateX(-50%) translateY(0);}
+
+/* SIDEBAR OVERLAY */
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;}
-/* error badge on feed */
-.feed-err{font-size:10px;color:#EF4444;background:#FEE2E2;padding:1px 6px;border-radius:3px;margin-left:4px;}
+
+/* MOBILE */
 @media(max-width:680px){
   .sb{display:none;position:fixed;top:52px;left:0;height:calc(100vh - 52px);z-index:45;width:240px;box-shadow:2px 0 16px rgba(0,0,0,.15);}
-  .sb.op{display:flex;}.sb-ov.op{display:block;}
+  .sb.op{display:flex;}
+  .sb-ov.op{display:block;}
   .sb-tog{display:flex;align-items:center;}
   .yt-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;}
   .li-th{width:90px;height:52px;}
@@ -165,6 +215,7 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
 <body>
 <div class="toast" id="toast"></div>
 <div class="sb-ov" id="sb-ov" onclick="closeSB()"></div>
+
 <header class="hdr">
   <button class="btn-i sb-tog" onclick="toggleSB()">
     <svg width="16" height="16" viewBox="0 0 16 16"><rect y="2" width="16" height="1.5" rx=".75" fill="currentColor"/><rect y="7.25" width="16" height="1.5" rx=".75" fill="currentColor"/><rect y="12.5" width="16" height="1.5" rx=".75" fill="currentColor"/></svg>
@@ -175,15 +226,15 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
     <input id="q" placeholder="検索..." oninput="renderFeed()">
   </div>
   <div class="hdr-r">
-    <button class="btn-o" onclick="refreshAll()">
+    <button class="btn-o" onclick="refreshAllFeeds()">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 2.5v3h-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>更新</span>
     </button>
-    <button class="btn-o" onclick="openRss()">
+    <button class="btn-o" onclick="openRssModal()">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="13" r="1.5" fill="currentColor"/><path d="M2 8.5a5.5 5.5 0 0 1 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 4a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       <span>RSS管理</span>
     </button>
-    <button class="btn-p" onclick="openAdd()">
+    <button class="btn-p" onclick="openAddModal()">
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
       <span>手動追加</span>
     </button>
@@ -200,12 +251,12 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
       <input id="cat-inp" placeholder="新しいカテゴリ..." maxlength="20" onkeydown="if(event.key==='Enter')addCat()">
       <button class="add-btn" onclick="addCat()">＋ カテゴリを追加</button>
     </div>
-    <div class="sb-div"></div>
-    <button class="rss-btn" onclick="openRss()">
+    <div class="sb-divider"></div>
+    <button class="rss-manage-btn" onclick="openRssModal()">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="13" r="1.5" fill="currentColor"/><path d="M2 8.5a5.5 5.5 0 0 1 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 4a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       RSSフィード管理
     </button>
-    <div class="lu" id="lu"></div>
+    <div class="last-updated" id="last-updated"></div>
   </aside>
 
   <main class="main">
@@ -223,95 +274,121 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
         </div>
       </div>
     </div>
-    <div class="ubar" id="ubar"><div class="spin"></div><span id="umsg">取得中...</span></div>
+    <div class="update-bar" id="update-bar">
+      <div class="spinner"></div>
+      <span id="update-msg">RSSフィードを取得中...</span>
+    </div>
     <div class="tag-row" id="tags"></div>
     <div id="feed"></div>
   </main>
 </div>
 
-<!-- RSS MODAL -->
-<div class="mo" id="rss-mo" onclick="if(event.target===this)closeRss()">
+<!-- RSS MANAGEMENT MODAL -->
+<div class="mo" id="rss-mo" onclick="if(event.target===this)closeRssModal()">
   <div class="modal">
     <div class="mo-hnd"></div>
     <div class="mo-tabs">
-      <button class="mo-tab on" onclick="stab('feeds')">登録済み</button>
-      <button class="mo-tab" onclick="stab('add')">追加</button>
-      <button class="mo-tab" onclick="stab('yt')">YouTubeヘルパー</button>
+      <button class="mo-tab on" onclick="switchTab('feeds')">登録済みフィード</button>
+      <button class="mo-tab" onclick="switchTab('add')">フィードを追加</button>
+      <button class="mo-tab" onclick="switchTab('yt')">YouTube ヘルパー</button>
     </div>
+
+    <!-- TAB: FEEDS -->
     <div class="tab-pane on" id="tab-feeds">
-      <div id="feed-list-el"></div>
-      <div id="no-feeds" style="text-align:center;padding:32px;color:var(--fg3);font-size:13px;display:none;">フィードが登録されていません</div>
-      <button class="bs" style="width:100%;margin-top:12px" onclick="refreshAll();closeRss()">全フィードを今すぐ更新</button>
+      <div id="feed-items-list"></div>
+      <div id="no-feeds" style="text-align:center;padding:32px;color:var(--fg3);font-size:13px;display:none;">
+        まだフィードが登録されていません。<br>「フィードを追加」タブから登録してください。
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;">
+        <button class="bs" style="flex:1" onclick="refreshAllFeeds();closeRssModal();">
+          全フィードを今すぐ更新
+        </button>
+      </div>
     </div>
+
+    <!-- TAB: ADD FEED -->
     <div class="tab-pane" id="tab-add">
       <label class="fl">フィード名（任意）</label>
-      <input class="fi" id="f-name" placeholder="例：文春オンライン、咲熊...">
+      <input class="fi" id="f-name" placeholder="例：ブライトサイド、文春オンライン...">
       <label class="fl">RSS URL <span style="color:var(--ac)">*</span></label>
       <input class="fi" id="f-url" placeholder="https://...">
-      <label class="fl">カテゴリ</label>
+      <label class="fl">カテゴリ（自動振り分け先）</label>
       <select class="fsel" id="f-cat"></select>
       <label class="fl">コンテンツ種別</label>
       <select class="fsel" id="f-type">
         <option value="video">🎬 動画</option>
-        <option value="article" selected>📰 記事</option>
+        <option value="article">📰 記事</option>
         <option value="book">📚 書籍・漫画</option>
         <option value="music">🎵 音楽・舞台</option>
         <option value="other">💡 その他</option>
       </select>
-      <label class="fl">プリセット</label>
-      <div class="preset-row">
-        <button class="pbtn" onclick="preset('https://note.com/hashtag/脚本/rss','note #脚本','article')">note #脚本</button>
-        <button class="pbtn" onclick="preset('https://note.com/hashtag/映画/rss','note #映画','article')">note #映画</button>
-        <button class="pbtn" onclick="preset('https://note.com/hashtag/漫画/rss','note #漫画','article')">note #漫画</button>
-        <button class="pbtn" onclick="preset('https://note.com/hashtag/ミュージカル/rss','note #ミュージカル','article')">note #ミュージカル</button>
-        <button class="pbtn" onclick="preset('https://note.com/hashtag/書籍/rss','note #書籍','book')">note #書籍</button>
-        <button class="pbtn" onclick="preset('https://bunshun.jp/rss/list','文春オンライン','article')">文春オンライン</button>
-        <button class="pbtn" onclick="preset('https://www.amazon.co.jp/rss/new-releases/books/','Amazon新刊','book')">Amazon新刊</button>
-        <button class="pbtn" onclick="preset('https://www.youtube.com/feeds/videos.xml?channel_id=UCddiUEpeqJcYeBxX1IVBKvQ','ブライトサイド','video')">ブライトサイド</button>
+
+      <!-- PRESET RSS URLs -->
+      <div style="margin-bottom:12px;">
+        <div class="fl" style="margin-bottom:6px;">よく使われるRSS（クリックで入力）</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <button class="preset-btn" onclick="usePreset('https://note.com/hashtag/脚本/rss','note #脚本')">note #脚本</button>
+          <button class="preset-btn" onclick="usePreset('https://note.com/hashtag/映画/rss','note #映画')">note #映画</button>
+          <button class="preset-btn" onclick="usePreset('https://note.com/hashtag/漫画/rss','note #漫画')">note #漫画</button>
+          <button class="preset-btn" onclick="usePreset('https://note.com/hashtag/ミュージカル/rss','note #ミュージカル')">note #ミュージカル</button>
+          <button class="preset-btn" onclick="usePreset('https://www.amazon.co.jp/rss/new-releases/books/','Amazon新刊')">Amazon新刊</button>
+          <button class="preset-btn" onclick="usePreset('https://bunshun.jp/rss/list','文春オンライン')">文春オンライン</button>
+        </div>
       </div>
+
       <div class="mo-btns">
-        <button class="bc" onclick="closeRss()">キャンセル</button>
-        <button class="bs" onclick="addFeed()">登録する</button>
+        <button class="bc" onclick="closeRssModal()">キャンセル</button>
+        <button class="bs" onclick="addFeed()">フィードを登録</button>
       </div>
     </div>
+
+    <!-- TAB: YOUTUBE HELPER -->
     <div class="tab-pane" id="tab-yt">
-      <div class="yt-box">
-        <h4>🎬 チャンネルURL → RSS変換</h4>
-        <p style="font-size:12px;color:var(--fg2);margin-bottom:8px;">チャンネルページのURLを貼ってください（<code>channel/UC...</code> 形式）。</p>
-        <div class="yt-row">
-          <input id="yt-url" placeholder="https://www.youtube.com/channel/UC...">
-          <button onclick="genYtRss()">生成</button>
+      <div class="yt-helper">
+        <h4>🎬 チャンネルURLからRSSを生成</h4>
+        <p style="font-size:12px;color:var(--fg2);margin-bottom:10px;">YouTubeチャンネルのURLを貼ると、RSSのURLを生成します。</p>
+        <div class="yt-inp-row">
+          <input id="yt-ch-url" placeholder="https://www.youtube.com/@channelname">
+          <button onclick="genYtChannelRss()">生成</button>
         </div>
-        <div class="yt-res" id="yt-res"></div>
+        <div class="yt-result" id="yt-ch-result"></div>
       </div>
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px;font-size:12px;color:var(--fg2);line-height:1.8;">
-        <strong>💡 チャンネルIDの調べ方</strong><br>
-        1. チャンネルページをブラウザで開く<br>
-        2. URLが <code>youtube.com/channel/UC...</code> → そのまま使える<br>
-        3. <code>@ハンドル</code> 形式の場合 → ページ右クリック →「ページのソースを表示」→ <code>Ctrl+F</code> で <code>channel_id</code> を検索
+      <div class="yt-helper">
+        <h4>🔍 キーワード検索のRSSを生成</h4>
+        <p style="font-size:12px;color:var(--fg2);margin-bottom:10px;">キーワードを入力すると、そのYouTube検索結果のRSSを生成します。</p>
+        <div class="yt-inp-row">
+          <input id="yt-kw" placeholder="例：脚本術、ミュージカル、漫画">
+          <button onclick="genYtKeywordRss()">生成</button>
+        </div>
+        <div class="yt-result" id="yt-kw-result"></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px;font-size:12px;color:var(--fg2);line-height:1.7;">
+        <strong>💡 よく使うYouTubeチャンネルRSS例：</strong><br>
+        チャンネルID（UCxxxxxx）は、チャンネルページURLの末尾にあります。<br>
+        形式：<code style="background:var(--bg3);padding:1px 5px;border-radius:3px;">https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxx</code>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ADD MODAL -->
-<div class="mo" id="add-mo" onclick="if(event.target===this)closeAdd()">
+<!-- MANUAL ADD MODAL -->
+<div class="mo" id="add-mo" onclick="if(event.target===this)closeAddModal()">
   <div class="modal">
     <div class="mo-hnd"></div>
     <h3 style="margin-bottom:14px;">手動でインプットを追加</h3>
-    <div class="type-sel">
-      <button class="type-opt on" data-type="video" onclick="setType('video')"><span class="ti">🎬</span><span class="tl">動画</span></button>
-      <button class="type-opt" data-type="article" onclick="setType('article')"><span class="ti">📰</span><span class="tl">記事</span></button>
-      <button class="type-opt" data-type="book" onclick="setType('book')"><span class="ti">📚</span><span class="tl">書籍・漫画</span></button>
-      <button class="type-opt" data-type="music" onclick="setType('music')"><span class="ti">🎵</span><span class="tl">音楽・舞台</span></button>
-      <button class="type-opt" data-type="tweet" onclick="setType('tweet')"><span class="ti">𝕏</span><span class="tl">X / SNS</span></button>
-      <button class="type-opt" data-type="other" onclick="setType('other')"><span class="ti">💡</span><span class="tl">その他</span></button>
+    <div class="type-sel" id="type-sel">
+      <button class="type-opt on" data-type="video" onclick="setType('video')"><span class="t-ico">🎬</span><span class="t-lbl">動画</span></button>
+      <button class="type-opt" data-type="article" onclick="setType('article')"><span class="t-ico">📰</span><span class="t-lbl">記事</span></button>
+      <button class="type-opt" data-type="book" onclick="setType('book')"><span class="t-ico">📚</span><span class="t-lbl">書籍・漫画</span></button>
+      <button class="type-opt" data-type="music" onclick="setType('music')"><span class="t-ico">🎵</span><span class="t-lbl">音楽・舞台</span></button>
+      <button class="type-opt" data-type="tweet" onclick="setType('tweet')"><span class="t-ico">𝕏</span><span class="t-lbl">X / SNS</span></button>
+      <button class="type-opt" data-type="other" onclick="setType('other')"><span class="t-ico">💡</span><span class="t-lbl">その他</span></button>
     </div>
-    <label class="fl">URL（貼るとサムネを自動取得）</label>
-    <input class="fi" id="m-url" placeholder="https://..." oninput="onUrl(this.value)">
+    <label class="fl">URL（貼るとサムネイルを自動取得）</label>
+    <input class="fi" id="m-url" placeholder="https://..." oninput="onUrlChange(this.value)">
     <div class="uprev" id="uprev">
       <img id="prev-img" src="" alt="" onerror="this.style.display='none'">
-      <div class="uprev-inf"><div class="uprev-ttl" id="prev-ttl"></div><div class="uprev-site" id="prev-site"></div></div>
+      <div class="uprev-inf"><div class="uprev-title" id="prev-title"></div><div class="uprev-site" id="prev-site"></div></div>
     </div>
     <label class="fl">タイトル <span style="color:var(--ac)">*</span></label>
     <input class="fi" id="m-title" placeholder="タイトルを入力...">
@@ -327,15 +404,20 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--fg);background:var(--bg);
       <button class="sb2" onclick="setStar(3)">★</button>
     </div>
     <div class="mo-btns">
-      <button class="bc" onclick="closeAdd()">キャンセル</button>
+      <button class="bc" onclick="closeAddModal()">キャンセル</button>
       <button class="bs" onclick="saveItem()">保存する</button>
     </div>
   </div>
 </div>
 
+<style>
+.preset-btn{padding:4px 10px;font-size:11px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--fg2);cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .12s;}
+.preset-btn:hover{border-color:var(--ac);color:var(--ac);}
+</style>
+
 <script>
 const COLORS=['#6366F1','#10B981','#F59E0B','#EF4444','#8B5CF6','#06B6D4','#EC4899','#84CC16','#F97316','#0EA5E9'];
-const BGS=['#EEF2FF','#D1FAE5','#FEF3C7','#FEE2E2','#EDE9FE','#CFFAFE','#FCE7F3','#F7FEE7','#FFF7ED','#E0F2FE'];
+const BG_C=['#EEF2FF','#D1FAE5','#FEF3C7','#FEE2E2','#EDE9FE','#CFFAFE','#FCE7F3','#F7FEE7','#FFF7ED','#E0F2FE'];
 const TM={
   video:{icon:'🎬',label:'動画',color:'#EF4444',bg:'#FEE2E2'},
   article:{icon:'📰',label:'記事',color:'#6366F1',bg:'#EEF2FF'},
@@ -345,179 +427,192 @@ const TM={
   other:{icon:'💡',label:'その他',color:'#F59E0B',bg:'#FEF3C7'},
 };
 
-// ===== MULTI-PROXY RSS FETCHER =====
-// Tries multiple free CORS proxies in sequence until one works
-async function fetchRaw(rssUrl) {
-  const proxies = [
-    u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
-    u => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(u)}`,
-  ];
-  for (const proxy of proxies) {
-    try {
-      const r = await fetch(proxy(rssUrl), { signal: AbortSignal.timeout(8000) });
-      if (!r.ok) continue;
-      const text = await r.text();
-      if (text && text.includes('<item')) return text;
-    } catch(e) { continue; }
-  }
-  return null;
-}
-
-function parseXml(xml) {
-  if (!xml) return [];
-  const items = [];
-  const re = /<item[^>]*>([\s\S]*?)<\/item>/gi;
-  let m;
-  while ((m = re.exec(xml)) !== null && items.length < 25) {
-    const b = m[1];
-    const get = tag => {
-      const r = new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\\/${tag}>`,'i');
-      const rm = b.match(r); return rm ? rm[1].trim() : '';
-    };
-    const enc = b.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
-    const mt  = b.match(/<media:thumbnail[^>]*url=["']([^"']+)["']/i);
-    const mc  = b.match(/<media:content[^>]*url=["']([^"']+)["']/i);
-    // img in description
-    const desc = get('description');
-    const imgInDesc = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
-    items.push({
-      title: get('title'),
-      link:  get('link'),
-      pubDate: get('pubDate'),
-      thumbnail: (mt&&mt[1]) || (mc&&mc[1]) || (enc&&enc[1]) || (imgInDesc&&imgInDesc[1]) || ''
-    });
-  }
-  return items;
-}
-
-async function fetchFeed(feedUrl) {
-  const xml = await fetchRaw(feedUrl);
-  return parseXml(xml);
-}
-
-function toItems(rawItems, feed) {
-  return rawItems.map(item => {
-    const url = item.link || '';
-    const vid = ytId(url);
-    let thumb = item.thumbnail || '';
-    if (!thumb && vid) thumb = ytThumb(vid);
-    return {
-      id: 'r_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
-      catId: feed.catId, type: feed.type || 'article',
-      title: (item.title||'').replace(/<[^>]+>/g,'').trim(),
-      url, thumb, memo: '',
-      time: item.pubDate ? new Date(item.pubDate).getTime() : Date.now(),
-      star: 0, fromFeed: feed.id, feedName: feed.name
-    };
-  }).filter(i => i.title);
-}
-
-// ===== STATE =====
 function loadState(){
-  try{const s=localStorage.getItem('inp_v7');if(s)return JSON.parse(s);}catch(e){}
+  try{const s=localStorage.getItem('inp_v5');if(s)return JSON.parse(s);}catch(e){}
   return{
     cats:[
-      {id:1,name:'脚本・映画',color:COLORS[2],bg:BGS[2]},
-      {id:2,name:'書籍・漫画',color:COLORS[1],bg:BGS[1]},
-      {id:3,name:'ミュージカル・音楽',color:COLORS[4],bg:BGS[4]},
-      {id:4,name:'宇宙・科学',color:COLORS[0],bg:BGS[0]},
-      {id:5,name:'歴史',color:COLORS[9],bg:BGS[9]},
+      {id:1,name:'脚本・映画',color:COLORS[2],bg:BG_C[2]},
+      {id:2,name:'書籍・漫画',color:COLORS[1],bg:BG_C[1]},
+      {id:3,name:'ミュージカル・音楽',color:COLORS[4],bg:BG_C[4]},
+      {id:4,name:'宇宙・科学',color:COLORS[0],bg:BG_C[0]},
+      {id:5,name:'歴史',color:COLORS[9],bg:BG_C[9]},
     ],
-    feeds:[],items:[],selCat:null,view:'grid',nci:6,nii:1,lastUpdated:null
+    feeds:[],
+    items:[],
+    selCat:null,view:'grid',nci:6,nii:1,lastUpdated:null
   };
 }
-let S=loadState(), cStar=0, cType='video', aiTimer=null, urlTimer=null;
-function persist(){localStorage.setItem('inp_v7',JSON.stringify(S));}
+
+let S=loadState();
+let cStar=0;
+let cType='video';
+let aiTimer=null;
+let urlTimer=null;
+
+function persist(){localStorage.setItem('inp_v5',JSON.stringify(S));}
 function getcat(id){return S.cats.find(c=>c.id===id);}
 function ago(ts){
   const d=(Date.now()-ts)/1000;
-  if(d<60)return'たった今';if(d<3600)return Math.floor(d/60)+'分前';
+  if(d<60)return'たった今';
+  if(d<3600)return Math.floor(d/60)+'分前';
   if(d<86400)return Math.floor(d/3600)+'時間前';
   if(d<86400*7)return Math.floor(d/86400)+'日前';
   return new Date(ts).toLocaleDateString('ja-JP',{month:'short',day:'numeric'});
 }
 function domain(url){try{return new URL(url).hostname.replace('www.','');}catch(e){return'';}}
 function ytId(url){
-  try{const u=new URL(url);
+  try{
+    const u=new URL(url);
     if(u.hostname.includes('youtube.com'))return u.searchParams.get('v');
     if(u.hostname.includes('youtu.be'))return u.pathname.slice(1);
-  }catch(e){}return null;
+  }catch(e){}
+  return null;
 }
 function ytThumb(id){return`https://img.youtube.com/vi/${id}/mqdefault.jpg`;}
 function getKey(){return localStorage.getItem('ant_key')||'';}
 
-async function refreshAll(){
-  if(!S.feeds.length){showToast('まずRSSフィードを登録してください');openRss();return;}
-  const bar=document.getElementById('ubar'), msg=document.getElementById('umsg');
-  bar.className='ubar show';
-  const existUrls=new Set(S.items.map(i=>i.url).filter(Boolean));
-  let newCount=0, failCount=0;
-  for(let i=0;i<S.feeds.length;i++){
-    const f=S.feeds[i];
-    msg.textContent=`「${f.name}」を取得中... (${i+1}/${S.feeds.length})`;
-    const rawItems=await fetchFeed(f.url);
-    if(rawItems.length>0){
-      const its=toItems(rawItems,f);
-      for(const it of its){
-        if(it.url&&existUrls.has(it.url))continue;
-        if(it.url)existUrls.add(it.url);
-        S.items.unshift(it);newCount++;
-      }
-    } else { failCount++; }
-    await new Promise(r=>setTimeout(r,400));
+/* ===== RSS FETCH ===== */
+async function fetchRss(feedUrl){
+  const ep=`/.netlify/functions/rss?url=${encodeURIComponent(feedUrl)}`;
+  try{
+    const r=await fetch(ep,{signal:AbortSignal.timeout(12000)});
+    const d=await r.json();
+    return d;
+  }catch(e){
+    // fallback: try rss2json directly (works on localhost)
+    try{
+      const r2=await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&count=20`,{signal:AbortSignal.timeout(10000)});
+      return await r2.json();
+    }catch(e2){return null;}
   }
-  if(S.items.length>600)S.items=S.items.slice(0,600);
-  S.lastUpdated=Date.now();
-  persist();bar.className='ubar';
-  renderSB();renderTags();renderFeed();
-  let msg2=newCount>0?`${newCount}件取得しました`:'新しいアイテムはありませんでした';
-  if(failCount>0)msg2+=`（${failCount}件取得失敗）`;
-  showToast(msg2);
 }
 
+function parseRssItems(data, feed){
+  if(!data||!data.items) return [];
+  return data.items.map(item=>{
+    const url=item.link||item.url||'';
+    const vid=ytId(url);
+    let thumb=item.thumbnail||item.enclosure?.link||'';
+    if(!thumb&&vid) thumb=ytThumb(vid);
+    // try image from description
+    if(!thumb&&item.description){
+      const imgM=item.description.match(/<img[^>]+src=["']([^"']+)["']/i);
+      if(imgM) thumb=imgM[1];
+    }
+    return{
+      id:'rss_'+Date.now()+'_'+Math.random().toString(36).slice(2),
+      catId:feed.catId,
+      type:feed.type||'article',
+      title:(item.title||'').replace(/<[^>]+>/g,'').trim(),
+      url,
+      thumb,
+      memo:'',
+      time:item.pubDate?new Date(item.pubDate).getTime():Date.now(),
+      star:0,
+      fromFeed:feed.id,
+      feedName:feed.name
+    };
+  }).filter(i=>i.title);
+}
+
+async function refreshAllFeeds(){
+  if(!S.feeds.length){
+    showToast('RSSフィードが登録されていません');
+    openRssModal();
+    return;
+  }
+  const bar=document.getElementById('update-bar');
+  const msg=document.getElementById('update-msg');
+  bar.className='update-bar show';
+
+  let newCount=0;
+  const existingUrls=new Set(S.items.map(i=>i.url).filter(Boolean));
+
+  for(let i=0;i<S.feeds.length;i++){
+    const feed=S.feeds[i];
+    msg.textContent=`「${feed.name}」を取得中... (${i+1}/${S.feeds.length})`;
+    const data=await fetchRss(feed.url);
+    if(data){
+      const items=parseRssItems(data,feed);
+      for(const item of items){
+        if(item.url&&existingUrls.has(item.url)) continue;
+        if(item.url) existingUrls.add(item.url);
+        S.items.unshift(item);
+        newCount++;
+      }
+    }
+    // small delay to avoid rate limiting
+    await new Promise(r=>setTimeout(r,200));
+  }
+
+  // keep max 500 items
+  if(S.items.length>500) S.items=S.items.slice(0,500);
+
+  S.lastUpdated=Date.now();
+  persist();
+  bar.className='update-bar';
+  renderSB();renderTags();renderFeed();
+  showToast(newCount>0?`${newCount}件の新しいアイテムを取得しました`:'新しいアイテムはありませんでした');
+}
+
+/* ===== SIDEBAR ===== */
 function renderSB(){
   const el=document.getElementById('cat-list');
   let h=`<div class="cat-r ${S.selCat===null?'on':''}" onclick="selCat(null)">
     <div class="cat-dot" style="background:#6366F1"></div>
-    <span class="cat-nm">すべて</span><span class="cat-n">${S.items.length}</span></div>`;
+    <span class="cat-nm">すべて</span>
+    <span class="cat-n">${S.items.length}</span>
+  </div>`;
   S.cats.forEach(c=>{
     const n=S.items.filter(i=>i.catId===c.id).length;
     h+=`<div class="cat-r ${S.selCat===c.id?'on':''}" onclick="selCat(${c.id})">
       <div class="cat-dot" style="background:${c.color}"></div>
-      <span class="cat-nm">${c.name}</span><span class="cat-n">${n}</span>
-      <button class="cat-x" onclick="event.stopPropagation();delCat(${c.id})">×</button></div>`;
+      <span class="cat-nm">${c.name}</span>
+      <span class="cat-n">${n}</span>
+      <button class="cat-x" onclick="event.stopPropagation();delCat(${c.id})">×</button>
+    </div>`;
   });
   el.innerHTML=h;
-  document.getElementById('lu').textContent=S.lastUpdated?`最終更新: ${ago(S.lastUpdated)}`:'未更新';
+  const lu=document.getElementById('last-updated');
+  lu.textContent=S.lastUpdated?`最終更新: ${ago(S.lastUpdated)}`:'未更新';
 }
+
 function renderTags(){
   const el=document.getElementById('tags');
   if(S.selCat!==null){el.innerHTML='';return;}
-  el.innerHTML=S.cats.map(c=>`<button class="tchip" onclick="selCat(${c.id})" style="border-color:${c.color};color:${c.color}">${c.name}</button>`).join('');
+  el.innerHTML=S.cats.map(c=>
+    `<button class="tchip" onclick="selCat(${c.id})" style="border-color:${c.color};color:${c.color}">${c.name}</button>`
+  ).join('');
 }
+
+/* ===== FEED ===== */
 function renderFeed(){
   const q=(document.getElementById('q').value||'').toLowerCase();
   let items=[...S.items];
-  if(S.selCat!==null)items=items.filter(i=>i.catId===S.selCat);
-  if(q)items=items.filter(i=>i.title.toLowerCase().includes(q));
+  if(S.selCat!==null) items=items.filter(i=>i.catId===S.selCat);
+  if(q) items=items.filter(i=>i.title.toLowerCase().includes(q)||(i.memo||'').toLowerCase().includes(q));
   items.sort((a,b)=>b.time-a.time);
+
   const cat=S.selCat?getcat(S.selCat):null;
   document.getElementById('pg-ttl').textContent=cat?cat.name:'すべて';
   document.getElementById('i-ct').textContent=items.length+'件';
+
   const fc=document.getElementById('feed');
   if(!items.length){
-    fc.innerHTML=`<div class="empty"><div class="empty-ico">${S.feeds.length?'📭':'📡'}</div>
-      <p>${S.feeds.length?'アイテムがありません。「更新」を押して取得してください。':'RSSフィードを登録して自動収集を始めましょう'}</p>
-      ${!S.feeds.length?`<button class="btn-p" style="display:inline-flex;margin:0 auto" onclick="openRss()">RSSを登録する</button>`:
-      `<button class="btn-o" style="display:inline-flex;margin:0 auto" onclick="refreshAll()">今すぐ更新</button>`}</div>`;
+    const hasFeed=S.feeds.length>0;
+    fc.innerHTML=`<div class="empty">
+      <div class="empty-ico">${hasFeed?'📭':'📡'}</div>
+      <p>${hasFeed?'まだアイテムがありません':'RSSフィードを登録して自動収集を始めましょう'}</p>
+      ${!hasFeed?`<button class="btn-p" onclick="openRssModal()" style="display:inline-flex;margin:0 auto">RSSフィードを登録する</button>`:''}
+    </div>`;
     fc.className='';return;
   }
+
   if(S.view==='grid'){
     fc.className='yt-grid';
     fc.innerHTML=items.map(item=>{
-      const c=getcat(item.catId),tm=TM[item.type]||TM.other;
+      const c=getcat(item.catId);
+      const tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
       const thumb=item.thumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'☆';
@@ -535,17 +630,18 @@ function renderFeed(){
             <div class="yc-ttl">${item.url?`<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>`:item.title}</div>
             <div class="yc-sub">
               <span style="color:${c?.color}">${c?.name||''}</span>
-              <span class="tbadge" style="background:${tm.bg};color:${tm.color}">${tm.label}</span>
+              <span class="type-badge" style="background:${tm.bg};color:${tm.color}">${tm.label}</span>
               <span>${ago(item.time)}</span>
             </div>
           </div>
         </div>
       </div>`;
     }).join('');
-  }else{
+  } else {
     fc.className='f-list';
     fc.innerHTML=items.map(item=>{
-      const c=getcat(item.catId),tm=TM[item.type]||TM.other;
+      const c=getcat(item.catId);
+      const tm=TM[item.type]||TM.other;
       const vid=ytId(item.url||'');
       const thumb=item.thumb||(vid?ytThumb(vid):'');
       const stars=item.star?'★'.repeat(item.star):'';
@@ -558,7 +654,7 @@ function renderFeed(){
           <div class="li-meta">
             <span style="color:${c?.color}">${c?.name||''}</span>
             <span style="background:${tm.bg};color:${tm.color};padding:1px 5px;border-radius:3px;font-size:10px;">${tm.label}</span>
-            ${item.feedName?`<span>${item.feedName}</span>`:''}
+            ${item.feedName?`<span style="color:var(--fg3)">${item.feedName}</span>`:''}
             <span>${ago(item.time)}</span>
             ${stars?`<span style="color:#F59E0B">${stars}</span>`:''}
           </div>
@@ -570,92 +666,147 @@ function renderFeed(){
 }
 
 function selCat(id){S.selCat=id;closeSB();renderSB();renderTags();renderFeed();}
-function setView(v){S.view=v;persist();document.getElementById('vg').className='vb'+(v==='grid'?' on':'');document.getElementById('vl').className='vb'+(v==='list'?' on':'');renderFeed();}
+function setView(v){
+  S.view=v;persist();
+  document.getElementById('vg').className='vb'+(v==='grid'?' on':'');
+  document.getElementById('vl').className='vb'+(v==='list'?' on':'');
+  renderFeed();
+}
 function addCat(){
-  const inp=document.getElementById('cat-inp');const name=inp.value.trim();if(!name)return;
+  const inp=document.getElementById('cat-inp');
+  const name=inp.value.trim();if(!name)return;
   const idx=S.cats.length%COLORS.length;
-  S.cats.push({id:S.nci++,name,color:COLORS[idx],bg:BGS[idx]});
-  inp.value='';persist();renderSB();renderTags();renderFeed();fillSels();showToast('カテゴリを追加しました');
+  S.cats.push({id:S.nci++,name,color:COLORS[idx],bg:BG_C[idx]});
+  inp.value='';persist();renderSB();renderTags();renderFeed();fillCatSels();showToast('カテゴリを追加しました');
 }
 function delCat(id){
   if(!confirm('このカテゴリとアイテムをすべて削除しますか？'))return;
-  S.cats=S.cats.filter(c=>c.id!==id);S.items=S.items.filter(i=>i.catId!==id);
+  S.cats=S.cats.filter(c=>c.id!==id);
+  S.items=S.items.filter(i=>i.catId!==id);
   if(S.selCat===id)S.selCat=null;
-  persist();renderSB();renderTags();renderFeed();fillSels();
+  persist();renderSB();renderTags();renderFeed();fillCatSels();
 }
-function delItem(id){S.items=S.items.filter(i=>i.id!==id);persist();renderSB();renderFeed();showToast('削除しました');}
-function cycleStar(id){const item=S.items.find(i=>i.id===id);if(item){item.star=((item.star||0)+1)%4;persist();renderFeed();}}
+function delItem(id){
+  S.items=S.items.filter(i=>i.id!==id);
+  persist();renderSB();renderFeed();showToast('削除しました');
+}
+function cycleStar(id){
+  const item=S.items.find(i=>i.id===id);
+  if(item){item.star=((item.star||0)+1)%4;persist();renderFeed();}
+}
 
-function openRss(){renderFeedList();fillSels();document.getElementById('rss-mo').className='mo op';stab('feeds');}
-function closeRss(){document.getElementById('rss-mo').className='mo';}
-function stab(t){
-  ['feeds','add','yt'].forEach((n,i)=>{
-    document.getElementById('tab-'+n).className='tab-pane'+(n===t?' on':'');
-    document.querySelectorAll('.mo-tab')[i].className='mo-tab'+(n===t?' on':'');
+/* ===== RSS MANAGEMENT ===== */
+function openRssModal(){
+  renderFeedList();fillCatSels();
+  document.getElementById('rss-mo').className='mo op';
+  switchTab('feeds');
+}
+function closeRssModal(){document.getElementById('rss-mo').className='mo';}
+
+function switchTab(tab){
+  ['feeds','add','yt'].forEach(t=>{
+    document.getElementById('tab-'+t).className='tab-pane'+(t===tab?' on':'');
+    document.querySelectorAll('.mo-tab')[['feeds','add','yt'].indexOf(t)].className='mo-tab'+(t===tab?' on':'');
   });
 }
+
 function renderFeedList(){
-  const el=document.getElementById('feed-list-el');
-  const no=document.getElementById('no-feeds');
-  if(!S.feeds.length){el.innerHTML='';no.style.display='block';return;}
-  no.style.display='none';
+  const el=document.getElementById('feed-items-list');
+  const noEl=document.getElementById('no-feeds');
+  if(!S.feeds.length){el.innerHTML='';noEl.style.display='block';return;}
+  noEl.style.display='none';
   el.innerHTML=S.feeds.map(f=>{
     const cat=getcat(f.catId);
-    return`<div class="feed-li">
+    return`<div class="feed-list-item">
       <div style="width:28px;height:28px;border-radius:50%;background:${cat?.color||'#888'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">${(cat?.name||'?')[0]}</div>
-      <div class="fn"><strong>${f.name}</strong><span>${f.url}</span></div>
-      <span class="fc-badge" style="background:${cat?.bg||'#f5f5f5'};color:${cat?.color||'#888'}">${cat?.name||'未分類'}</span>
-      <button class="fdel" onclick="delFeed('${f.id}')">×</button>
+      <div class="feed-name">
+        <strong>${f.name}</strong>
+        <span>${f.url}</span>
+      </div>
+      <span class="feed-cat-badge" style="background:${cat?.bg||'#f5f5f5'};color:${cat?.color||'#888'}">${cat?.name||'未分類'}</span>
+      <button class="feed-del-btn" onclick="deleteFeed('${f.id}')">×</button>
     </div>`;
   }).join('');
 }
+
 function addFeed(){
   const url=document.getElementById('f-url').value.trim();
   if(!url){document.getElementById('f-url').focus();return;}
   const name=document.getElementById('f-name').value.trim()||domain(url);
   const catId=parseInt(document.getElementById('f-cat').value);
   const type=document.getElementById('f-type').value;
-  S.feeds.push({id:'f_'+Date.now(),name,url,catId,type});
+  const id='feed_'+Date.now();
+  S.feeds.push({id,name,url,catId,type});
   persist();
-  document.getElementById('f-url').value='';document.getElementById('f-name').value='';
-  renderFeedList();showToast(`「${name}」を登録しました`);stab('feeds');
-}
-function delFeed(id){
-  S.feeds=S.feeds.filter(f=>f.id!==id);S.items=S.items.filter(i=>i.fromFeed!==id);
-  persist();renderFeedList();renderSB();renderFeed();showToast('削除しました');
-}
-function preset(url,name,type){
-  stab('add');
-  document.getElementById('f-url').value=url;
-  document.getElementById('f-name').value=name;
-  document.getElementById('f-type').value=type;
-}
-function genYtRss(){
-  const inp=document.getElementById('yt-url').value.trim();
-  const res=document.getElementById('yt-res');
-  const m=inp.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
-  if(m){
-    const rssUrl=`https://www.youtube.com/feeds/videos.xml?channel_id=${m[1]}`;
-    res.innerHTML=`<div style="margin-bottom:6px;word-break:break-all">${rssUrl}</div><button class="yt-copy" onclick="copyUse('${rssUrl}')">コピーして追加へ →</button>`;
-    res.className='yt-res show';
-  }else{
-    res.innerHTML='URLに <code>channel/UC...</code> の形式のIDが見つかりません。チャンネルページのソースから <code>channel_id</code> を検索してください。';
-    res.className='yt-res show';
-  }
-}
-function copyUse(url){
-  navigator.clipboard.writeText(url).catch(()=>{});
-  stab('add');document.getElementById('f-url').value=url;
-  document.getElementById('f-type').value='video';
-  showToast('URLをセットしました');
-}
-function fillSels(){
-  const opts=S.cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
-  ['f-cat','m-cat'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=opts;});
+  document.getElementById('f-url').value='';
+  document.getElementById('f-name').value='';
+  renderFeedList();
+  showToast(`「${name}」を登録しました`);
+  switchTab('feeds');
 }
 
-function openAdd(){
-  fillSels();
+function deleteFeed(id){
+  S.feeds=S.feeds.filter(f=>f.id!==id);
+  // optionally remove items from this feed
+  S.items=S.items.filter(i=>i.fromFeed!==id);
+  persist();renderFeedList();renderSB();renderFeed();
+  showToast('フィードを削除しました');
+}
+
+function usePreset(url,name){
+  switchTab('add');
+  document.getElementById('f-url').value=url;
+  document.getElementById('f-name').value=name;
+  document.getElementById('f-url').focus();
+}
+
+/* ===== YOUTUBE HELPER ===== */
+function genYtChannelRss(){
+  const inp=document.getElementById('yt-ch-url').value.trim();
+  const res=document.getElementById('yt-ch-result');
+  // extract channel ID
+  let channelId='';
+  const m=inp.match(/channel\/(UC[a-zA-Z0-9_-]+)/);
+  if(m){channelId=m[1];}
+  else{
+    // @handle → need channel ID but can't auto-resolve without API
+    // provide instruction
+    res.innerHTML=`<div>チャンネルページを開き、URLが <code>youtube.com/channel/UC...</code> の形式であればそのIDをコピーしてください。<br><code>@handle</code> 形式の場合はチャンネルページの「概要」→「チャンネルを共有」からチャンネルIDを確認できます。</div>`;
+    res.className='yt-result show';
+    return;
+  }
+  const rssUrl=`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+  res.innerHTML=`<div style="word-break:break-all;margin-bottom:6px;">${rssUrl}</div><button class="yt-copy-btn" onclick="copyAndUse('${rssUrl}')">コピーしてフィード追加へ →</button>`;
+  res.className='yt-result show';
+}
+
+function genYtKeywordRss(){
+  const kw=document.getElementById('yt-kw').value.trim();
+  if(!kw)return;
+  const rssUrl=`https://www.youtube.com/feeds/videos.xml?q=${encodeURIComponent(kw)}`;
+  const res=document.getElementById('yt-kw-result');
+  res.innerHTML=`<div style="word-break:break-all;margin-bottom:6px;">${rssUrl}</div><button class="yt-copy-btn" onclick="copyAndUse('${rssUrl}')">コピーしてフィード追加へ →</button>`;
+  res.className='yt-result show';
+}
+
+function copyAndUse(url){
+  navigator.clipboard.writeText(url).catch(()=>{});
+  switchTab('add');
+  document.getElementById('f-url').value=url;
+  showToast('URLをコピーして入力欄にセットしました');
+}
+
+function fillCatSels(){
+  const opts=S.cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  ['f-cat','m-cat'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML=opts;
+  });
+}
+
+/* ===== MANUAL ADD ===== */
+function openAddModal(){
+  fillCatSels();
   ['m-url','m-title','m-memo'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('ai-hint').textContent='';
   document.getElementById('uprev').style.display='none';
@@ -663,50 +814,60 @@ function openAdd(){
   document.getElementById('add-mo').className='mo op';
   setTimeout(()=>document.getElementById('m-url').focus(),80);
 }
-function closeAdd(){document.getElementById('add-mo').className='mo';}
-function setType(t){cType=t;document.querySelectorAll('.type-opt').forEach(b=>{b.className='type-opt'+(b.dataset.type===t?' on':'');});}
-async function onUrl(url){
+function closeAddModal(){document.getElementById('add-mo').className='mo';}
+
+function setType(t){
+  cType=t;
+  document.querySelectorAll('.type-opt').forEach(b=>{b.className='type-opt'+(b.dataset.type===t?' on':'');});
+}
+
+async function onUrlChange(url){
   clearTimeout(urlTimer);
-  const prev=document.getElementById('uprev'),pImg=document.getElementById('prev-img');
-  const pTtl=document.getElementById('prev-ttl'),pSite=document.getElementById('prev-site');
+  const prev=document.getElementById('uprev');
+  const prevImg=document.getElementById('prev-img');
+  const prevTitle=document.getElementById('prev-title');
+  const prevSite=document.getElementById('prev-site');
   if(!url||!url.startsWith('http')){prev.style.display='none';return;}
   const vid=ytId(url);
   if(vid){
-    pImg.src=ytThumb(vid);pImg.style.display='block';
-    pTtl.textContent='YouTube 動画';pSite.textContent='youtube.com';
+    prevImg.src=ytThumb(vid);prevImg.style.display='block';
+    prevTitle.textContent='YouTube 動画';prevSite.textContent='youtube.com';
     prev.style.display='block';return;
   }
   urlTimer=setTimeout(async()=>{
+    const ep=`/.netlify/functions/ogp?url=${encodeURIComponent(url)}`;
     try{
-      const r=await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,{signal:AbortSignal.timeout(8000)});
-      const d=await r.json();const html=d.contents||'';
-      const gm=p=>{const ps=[new RegExp(`<meta[^>]*property=["']${p}["'][^>]*content=["']([^"']+)["']`,'i'),new RegExp(`<meta[^>]*content=["']([^"']+)["'][^>]*property=["']${p}["']`,'i')];for(const px of ps){const m=html.match(px);if(m)return m[1].trim();}return'';};
-      const img=gm('og:image')||gm('twitter:image');
-      const title=gm('og:title')||(html.match(/<title[^>]*>([^<]+)<\/title>/i)||[])[1]||'';
-      const site=gm('og:site_name')||domain(url);
-      if(img){pImg.src=img;pImg.style.display='block';}else{pImg.style.display='none';}
-      pTtl.textContent=title.trim();pSite.textContent=site;
+      const r=await fetch(ep,{signal:AbortSignal.timeout(8000)});
+      const ogp=await r.json();
+      if(ogp.image){prevImg.src=ogp.image;prevImg.style.display='block';}else{prevImg.style.display='none';}
+      prevTitle.textContent=ogp.title||domain(url);
+      prevSite.textContent=ogp.siteName||domain(url);
       prev.style.display='block';
       const tEl=document.getElementById('m-title');
-      if(!tEl.value&&title.trim()){tEl.value=title.trim();triggerAi(title.trim());}
+      if(!tEl.value&&ogp.title){tEl.value=ogp.title;triggerAi(ogp.title);}
     }catch(e){prev.style.display='none';}
-  },600);
+  },500);
 }
+
 document.getElementById('m-title').addEventListener('input',function(){
   if(this.value.trim().length>3)triggerAi(this.value.trim());
   else document.getElementById('ai-hint').textContent='';
 });
+
 async function triggerAi(title){
   const key=getKey();if(!key||!S.cats.length)return;
   clearTimeout(aiTimer);
   aiTimer=setTimeout(async()=>{
-    const hint=document.getElementById('ai-hint');hint.textContent='🤖 AI分類中...';
+    const hint=document.getElementById('ai-hint');
+    hint.textContent='🤖 AI分類中...';
     try{
-      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      const res=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
         headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01'},
         body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:30,messages:[{role:'user',content:`以下のタイトルを、カテゴリ一覧から最も近い1つに分類してください。カテゴリ名だけを返してください。\nタイトル：${title}\nカテゴリ一覧：${S.cats.map(c=>c.name).join('、')}`}]})
       });
-      const d=await res.json();const sug=(d.content?.[0]?.text||'').trim();
+      const d=await res.json();
+      const sug=(d.content?.[0]?.text||'').trim();
       const match=S.cats.find(c=>c.name===sug||sug.includes(c.name));
       if(match){
         hint.textContent=`✨ AI提案: ${match.name}（クリックで適用）`;
@@ -716,23 +877,36 @@ async function triggerAi(title){
     }catch(e){hint.textContent='';}
   },700);
 }
-function setStar(v){cStar=v;document.querySelectorAll('.sb2').forEach((b,i)=>{b.className='sb2'+(i<v?' on':'');});}
+
+function setStar(v){
+  cStar=v;
+  document.querySelectorAll('.sb2').forEach((b,i)=>{b.className='sb2'+(i<v?' on':'');});
+}
+
 function saveItem(){
   const title=document.getElementById('m-title').value.trim();
   if(!title){document.getElementById('m-title').focus();return;}
   const catId=parseInt(document.getElementById('m-cat').value);
   const url=document.getElementById('m-url').value.trim();
   const memo=document.getElementById('m-memo').value.trim();
-  const pImg=document.getElementById('prev-img');
-  const thumb=(pImg.style.display!=='none'&&pImg.src&&!pImg.src.includes('data:'))?pImg.src:'';
+  const prevImg=document.getElementById('prev-img');
+  const thumb=(prevImg.style.display!=='none'&&prevImg.src&&!prevImg.src.includes('data:'))?prevImg.src:'';
   S.items.unshift({id:'m_'+S.nii++,catId,type:cType,title,url,thumb,memo,time:Date.now(),star:cStar});
-  persist();closeAdd();renderSB();renderTags();renderFeed();showToast('追加しました');
+  persist();closeAddModal();renderSB();renderTags();renderFeed();showToast('追加しました');
 }
+
+/* SIDEBAR MOBILE */
 function toggleSB(){document.getElementById('sb').classList.toggle('op');document.getElementById('sb-ov').classList.toggle('op');}
 function closeSB(){document.getElementById('sb').classList.remove('op');document.getElementById('sb-ov').classList.remove('op');}
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('sh');setTimeout(()=>t.classList.remove('sh'),2500);}
 
-renderSB();renderTags();renderFeed();fillSels();
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('sh');
+  setTimeout(()=>t.classList.remove('sh'),2500);
+}
+
+// init
+renderSB();renderTags();renderFeed();fillCatSels();
 </script>
 </body>
 </html>
