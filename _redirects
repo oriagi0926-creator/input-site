@@ -1,0 +1,5 @@
+# YouTube RSS proxy
+/proxy/yt/:channelId https://www.youtube.com/feeds/videos.xml?channel_id=:channelId 200
+
+# General RSS proxy
+/proxy/rss/:url https://:url 200
